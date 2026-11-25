@@ -59,3 +59,18 @@ def test_cantos_no_se_repiten_y_existen(tmp_path):
 def test_render_html(tmp_path):
     html = render_html(_hoja(date(2026, 11, 18), tmp_path))
     assert "HOJA LITURGIA" in html and "SEMANA DE SALTERIO: I" in html
+
+
+def test_himno_sin_titulo_segun_la_celebracion(tmp_path):
+    h = _hoja(date(2026, 11, 18), tmp_path)
+    jueves = _dia(h, "2026-11-19")                         # feria
+    assert jueves["laudes"]["himno"] == jueves["visperas"]["himno"] == "Feria"
+    sabado = _dia(h, "2026-11-21")                         # memoria de la Virgen
+    assert sabado["laudes"]["himno"] == "Del común de santa María Virgen"
+
+
+def test_himno_de_fiestas_y_solemnidades(tmp_path):
+    fiesta = _dia(generar_borrador(date(2027, 1, 25), cargar_config(), carpeta_semanas=tmp_path), "2027-01-25")
+    assert fiesta["laudes"]["himno"] == "Del común de apóstoles"       # Conversión de san Pablo
+    solemne = _dia(generar_borrador(date(2026, 12, 8), cargar_config(), carpeta_semanas=tmp_path), "2026-12-08")
+    assert solemne["laudes"]["himno"] == "Propio"                      # Inmaculada

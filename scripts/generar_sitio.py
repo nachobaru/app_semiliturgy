@@ -21,7 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from semiliturgy.borrador import RAIZ, cargar_config, cargar_himnos, generar_borrador, guardar_borrador  # noqa: E402
+from semiliturgy.borrador import OPCIONES_HIMNO, RAIZ, cargar_config, generar_borrador, guardar_borrador  # noqa: E402
 from semiliturgy.calendario import domingo_de  # noqa: E402
 from semiliturgy.cantos import catalogo  # noqa: E402
 from semiliturgy.hoja import PLANTILLAS, cargar_hoja  # noqa: E402
@@ -90,7 +90,7 @@ def construir(salida: Path, n: int, desde: date) -> None:
         "generado": date.today().isoformat(),
         "semanas": semanas(n, desde),
         "cantos": [c.etiqueta_hoja() for c in sorted(catalogo().values(), key=lambda c: c.n) if not c.excluir],
-        "himnos": sorted({h["titulo"] for h in cargar_himnos() if isinstance(h, dict) and "titulo" in h}),
+        "himnos": OPCIONES_HIMNO,
         "css": css_de_la_hoja(),
     }
     (salida / "datos.json").write_text(json.dumps(datos, ensure_ascii=False, default=str), encoding="utf-8")

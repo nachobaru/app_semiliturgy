@@ -14,7 +14,7 @@ dias:
   celebracion: FERIA
   color: verde
   laudes:
-    himno: Buenos días, Señor
+    himno: Feria
     salmodia: Feria
     benedictus: Feria
   eucaristia:
@@ -25,7 +25,7 @@ dias:
     ofertorio: 37 · Te ofrecemos, Señor (F. Palazón)
     comunion: 68 · Yo soy el pan de vida (S. Toole)
   visperas:
-    himno: Libra mis ojos de la muerte
+    himno: Feria
     salmodia: Feria
     magnificat: Feria
 - fecha: '2026-11-24'
@@ -33,7 +33,7 @@ dias:
   celebracion: SANTOS ANDRÉS DUNG-LAC Y COMPAÑEROS, MÁRTIRES
   color: rojo
   laudes:
-    himno: Alegre la mañana
+    himno: Del común de mártires
     salmodia: Feria
     benedictus: Feria
   eucaristia:
@@ -44,7 +44,7 @@ dias:
     ofertorio: 36 · Te ofrecemos, Señor, este santo Sacrificio
     comunion: 62 · Oh, Señor, delante de ti (C. Erdozáin)
   visperas:
-    himno: Contigo avanza un pueblo
+    himno: Del común de mártires
     salmodia: Feria
     magnificat: Feria
 - fecha: '2026-11-25'
@@ -52,7 +52,7 @@ dias:
   celebracion: FERIA
   color: verde
   laudes:
-    himno: En la noche
+    himno: Feria
     salmodia: Feria
     benedictus: Feria
   eucaristia:
@@ -63,7 +63,7 @@ dias:
     ofertorio: 29 · Bendito seas, Señor (Pascual/Palazón)
     comunion: 63 · Pescador
   visperas:
-    himno: Hora de la tarde
+    himno: Feria
     salmodia: Feria
     magnificat: Feria
 - fecha: '2026-11-26'
@@ -71,7 +71,7 @@ dias:
   celebracion: FERIA
   color: verde
   laudes:
-    himno: Te damos gracias, Señor
+    himno: Feria
     salmodia: Feria
     benedictus: Feria
   eucaristia:
@@ -82,7 +82,7 @@ dias:
     ofertorio: 28 · Acuérdate, Señor, de tu Iglesia
     comunion: 67 · Tú eres, Señor, el pan de vida
   visperas:
-    himno: Cuando la luz del sol es ya poniente
+    himno: Feria
     salmodia: Feria
     magnificat: Feria
 - fecha: '2026-11-27'
@@ -90,7 +90,7 @@ dias:
   celebracion: FERIA
   color: verde
   laudes:
-    himno: Eres la luz
+    himno: Feria
     salmodia: Feria
     benedictus: Feria
   eucaristia:
@@ -101,7 +101,7 @@ dias:
     ofertorio: 32 · Esto que te doy (E. Ortiz)
     comunion: 50 · El pan del cielo (Popular Gallega)
   visperas:
-    himno: Libra mis ojos de la muerte
+    himno: Feria
     salmodia: Feria
     magnificat: Feria
 - fecha: '2026-11-28'
@@ -109,7 +109,7 @@ dias:
   celebracion: FERIA
   color: verde
   laudes:
-    himno: Nacidos de la Luz
+    himno: Feria
     salmodia: Feria
     benedictus: Feria
   eucaristia:

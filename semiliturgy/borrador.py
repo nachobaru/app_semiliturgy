@@ -19,6 +19,18 @@ TIEMPO_HOJA = {"adviento": "Adviento", "navidad": "Navidad", "ordinario": "Ordin
                "cuaresma": "Cuaresma", "semana_santa": "Semana Santa", "triduo": "Triduo Pascual",
                "pascua": "Pascua"}
 
+HIMNO_COMUN = {
+    "virgen": "Del común de santa María Virgen",
+    "martires": "Del común de mártires",
+    "pastores": "Del común de pastores",
+    "doctores": "Del común de doctores",
+    "virgenes": "Del común de vírgenes",
+    "santos": "Del común de santos",
+    "apostoles": "Del común de apóstoles",
+}
+# Valores que se ofrecen al editar el himno (autocompletado en las interfaces web).
+OPCIONES_HIMNO = ["Feria", "Propio", "Del domingo", "Del tiempo", *HIMNO_COMUN.values()]
+
 PREFACIO_COMUN = {
     "virgen": ["Santa María Virgen I", "Santa María Virgen II"],
     "martires": ["Mártires I", "Mártires II"],
@@ -33,11 +45,6 @@ PREFACIO_COMUN = {
 def cargar_config(path: Path | None = None) -> dict:
     path = path or RAIZ / "config.yaml"
     return yaml.safe_load(path.read_text(encoding="utf-8"))
-
-
-def cargar_himnos() -> list[dict]:
-    p = DATA / "himnos.yaml"
-    return yaml.safe_load(p.read_text(encoding="utf-8")) or [] if p.exists() else []
 
 
 class Rotador:
@@ -85,32 +92,21 @@ def antifona_evangelica(d: DiaLiturgico, cfg: dict) -> str:
     return "Feria"
 
 
-def himno(d: DiaLiturgico, hora: str, himnos: list[dict], usados: set[str]) -> str:
-    if es_grande(d):
+def himno(d: DiaLiturgico) -> str:
+    """En la hoja no se pone el título del himno, sino de dónde se toma.
+
+    Feria -> "Feria"; domingo -> "Del domingo" (o "Del tiempo" fuera del ordinario);
+    solemnidad -> "Propio"; fiesta o memoria -> "Del común de ..." si tiene común y el santoral
+    no le marca `himno: propio`; si no, "Propio".
+    """
+    c = d.celebracion
+    if c.grado == "feria":
+        return "Feria"
+    if c.grado == "domingo":
+        return "Del domingo" if d.tiempo.nombre == "ordinario" else "Del tiempo"
+    if c.grado in ("solemnidad", "triduo") or (c.himno or "").lower() == "propio" or not c.comun:
         return "Propio"
-    if d.tiempo.nombre in ("adviento", "navidad", "cuaresma", "semana_santa", "pascua") and not himnos:
-        return "Del tiempo"
-    etiquetas = {d.celebracion.comun} if d.grado in ("memoria", "memoria_libre") and d.celebracion.comun else set()
-    tiempo = d.tiempo.nombre
-
-    def encaja(h: dict, repetir: bool = False) -> bool:
-        if hora not in h.get("horas", [hora]) or (h["titulo"] in usados and not repetir):
-            return False
-        if etiquetas:
-            return bool(etiquetas & set(h.get("etiquetas", [])))
-        return tiempo in h.get("tiempos", []) and not h.get("etiquetas")
-
-    candidatos = [h for h in himnos if encaja(h)]
-    if not candidatos and etiquetas:           # memoria sin himno propio en el catálogo: el del tiempo
-        etiquetas = set()
-        candidatos = [h for h in himnos if encaja(h)]
-    if not candidatos:                         # catálogo agotado esta semana: se permite repetir
-        candidatos = [h for h in himnos if encaja(h, repetir=True)]
-    if not candidatos:
-        return "Del tiempo" if tiempo != "ordinario" else ""
-    elegido = candidatos[d.fecha.toordinal() % len(candidatos)]
-    usados.add(elegido["titulo"])
-    return elegido["titulo"]
+    return HIMNO_COMUN.get(c.comun, "Propio")
 
 
 def tiene_primeras_visperas(hoy: DiaLiturgico, mañana: DiaLiturgico) -> bool:
@@ -186,15 +182,14 @@ def etiqueta_celebracion(d: DiaLiturgico) -> str:
 
 # ---------------------------------------------------------------- borrador
 
-def campos_dia(d: DiaLiturgico, horario: dict, cfg: dict, himnos: list[dict],
-               himnos_usados: set[str], rot: Rotador, sug: Sugeridor) -> dict:
+def campos_dia(d: DiaLiturgico, horario: dict, cfg: dict, rot: Rotador, sug: Sugeridor) -> dict:
     """Todo lo que la hoja dice de un día según su celebración (el orden de las claves es el de la hoja)."""
     horas = horario.get("horas", [])
     dia: dict = {"celebracion": etiqueta_celebracion(d), "color": d.celebracion.color}
     if horario.get("laudes_con_eucaristia"):
         dia["laudes_con_eucaristia"] = True
     if "laudes" in horas:
-        dia["laudes"] = {"himno": himno(d, "laudes", himnos, himnos_usados),
+        dia["laudes"] = {"himno": himno(d),
                          "salmodia": salmodia(d, "laudes"),
                          "benedictus": antifona_evangelica(d, cfg)}
     if "eucaristia" in horas:
@@ -209,17 +204,17 @@ def campos_dia(d: DiaLiturgico, horario: dict, cfg: dict, himnos: list[dict],
         if tiene_primeras_visperas(d, sig):
             dia["visperas"] = primeras_visperas(sig)
         else:
-            dia["visperas"] = {"himno": himno(d, "visperas", himnos, himnos_usados),
+            dia["visperas"] = {"himno": himno(d),
                                "salmodia": salmodia(d, "visperas"),
                                "magnificat": antifona_evangelica(d, cfg)}
     return dia
 
 
-def opciones_dia(d: DiaLiturgico, dia: dict, horario: dict, cfg: dict, himnos: list[dict],
-                 himnos_usados: set[str], rot: Rotador, sug: Sugeridor) -> list[dict]:
+def opciones_dia(d: DiaLiturgico, dia: dict, horario: dict, cfg: dict,
+                 rot: Rotador, sug: Sugeridor) -> list[dict]:
     """Variantes de un día con memorias libres: la feria (la que ya está en `dia`) y cada memoria.
 
-    Las variantes se calculan con copia del estado (rotadores, himnos y cantos usados) para no alterar
+    Las variantes se calculan con copia del estado (rotadores y cantos usados) para no alterar
     lo que se propone en los demás días: solo una de ellas acabará en la hoja.
     """
     base = {k: copy.deepcopy(v) for k, v in dia.items() if k not in ("fecha", "dia")}
@@ -228,8 +223,8 @@ def opciones_dia(d: DiaLiturgico, dia: dict, horario: dict, cfg: dict, himnos: l
                  "tipo": "Del día", **base}]
     for c in d.memorias_libres:
         variante = replace(d, celebracion=c, memorias_libres=[], conmemoraciones=[], avisos=[])
-        campos = campos_dia(variante, horario, cfg, himnos, set(himnos_usados),
-                            Rotador(semilla=rot.semilla), Sugeridor(excluidos=set(sug.excluidos)))
+        campos = campos_dia(variante, horario, cfg, Rotador(semilla=rot.semilla),
+                            Sugeridor(excluidos=set(sug.excluidos)))
         opciones.append({"etiqueta": c.nombre, "tipo": "Memoria libre", **campos})
     return opciones
 
@@ -242,8 +237,6 @@ def generar_borrador(fecha: date, cfg: dict | None = None, carpeta_semanas: Path
     inicio = domingo_de(fecha)
     dias = semana(inicio)
     rot = Rotador(semilla=dias[1].tiempo.semana)
-    himnos = cargar_himnos()
-    himnos_usados: set[str] = set()
     sug = Sugeridor(excluidos=usados_recientemente(carpeta_semanas, inicio, cfg.get("semanas_sin_repetir_cantos", 3)))
 
     fin = inicio + timedelta(days=6)
@@ -269,9 +262,9 @@ def generar_borrador(fecha: date, cfg: dict | None = None, carpeta_semanas: Path
             continue
         horario = cfg["horario"].get(clave, {})
         dia: dict = {"fecha": d.fecha.isoformat(), "dia": NOMBRE_DIA[d.fecha.weekday()]}
-        dia.update(campos_dia(d, horario, cfg, himnos, himnos_usados, rot, sug))
+        dia.update(campos_dia(d, horario, cfg, rot, sug))
         if con_opciones and d.memorias_libres:
-            dia["opciones"] = opciones_dia(d, dia, horario, cfg, himnos, himnos_usados, rot, sug)
+            dia["opciones"] = opciones_dia(d, dia, horario, cfg, rot, sug)
             dia["opcion"] = 0
         for c in d.memorias_libres:
             if not con_opciones:

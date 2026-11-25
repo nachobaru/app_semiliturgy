@@ -175,6 +175,7 @@ class Celebracion:
     ambito: str = "universal"
     verificar: bool = False
     señor: bool = False
+    himno: str | None = None      # "propio" si el santoral indica himno propio aunque tenga común
 
 
 @dataclass
@@ -301,7 +302,7 @@ def _celebracion_santoral(d: date) -> Celebracion | None:
         clave = "memoria_propia"
     return Celebracion(e["nombre"], grado, RANGOS[clave], e.get("color", "blanco"),
                        e.get("prefacio"), e.get("comun"), e.get("ambito", "universal"),
-                       bool(e.get("verificar")), bool(e.get("señor")))
+                       bool(e.get("verificar")), bool(e.get("señor")), e.get("himno"))
 
 
 def dia_liturgico(d: date) -> DiaLiturgico:

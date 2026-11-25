@@ -16,7 +16,7 @@ from pathlib import Path
 
 from flask import Flask, Response, abort, redirect, render_template, request, send_file, url_for
 
-from .borrador import RAIZ, cargar_himnos, generar_borrador, guardar_borrador
+from .borrador import OPCIONES_HIMNO, RAIZ, generar_borrador, guardar_borrador
 from .calendario import domingo_de
 from .cantos import catalogo
 from .hoja import cargar_hoja, render_html
@@ -111,8 +111,7 @@ def crear_app(carpeta: Path | None = None) -> Flask:
             guardar_borrador(hoja, ruta)
             guardado = True
         cantos = [c.etiqueta_hoja() for c in sorted(catalogo().values(), key=lambda c: c.n) if not c.excluir]
-        himnos = sorted({h["titulo"] if isinstance(h, dict) else str(h) for h in cargar_himnos()
-                         if not isinstance(h, dict) or "titulo" in h})
+        himnos = OPCIONES_HIMNO
         return render_template("editar.html", semana=semana, hoja=hoja, guardado=guardado,
                                cantos=cantos, himnos=himnos, etiquetas=ETIQUETAS,
                                momentos=MOMENTOS_CANTO, secciones=SECCIONES)

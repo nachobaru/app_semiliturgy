@@ -7,7 +7,8 @@ borrador con todo lo que sale por reglas:
 
 - tiempo litúrgico, semana y **semana del salterio**;
 - celebración de cada día (solemnidad, fiesta, memoria, feria) según la tabla de precedencias;
-- **Laudes y Vísperas**: himno sugerido, salmodia (Feria / Domingo I / Propia) y antífona del
+- **Laudes y Vísperas**: himno (no el título, sino de dónde se toma: *Feria*, *Propio* o *Del común
+  de …*), salmodia (Feria / Domingo I / Propia) y antífona del
   Benedictus o del Magníficat; I Vísperas de domingos y solemnidades;
 - **Eucaristía**: formulario y **prefacio** (rotando los comunes sin repetir en la semana);
 - **cantos** de entrada, ofertorio y comunión tomados del cantoral del Seminario, adecuados al
@@ -34,7 +35,7 @@ python -m semiliturgy web      # http://127.0.0.1:5000
 ```
 
 Lista las semanas, crea el borrador de cualquier fecha, permite editar cada día (con
-autocompletado de cantos e himnos), guardar en `semanas/*.yaml`, ver la hoja y descargar el PDF.
+autocompletado de cantos), guardar en `semanas/*.yaml`, ver la hoja y descargar el PDF.
 No tiene usuarios ni contraseña: escucha solo en `127.0.0.1`. No la expongas a internet
 (`--host 0.0.0.0`) sin ponerle delante autenticación.
 
@@ -67,7 +68,6 @@ para no repetirlos. Conviene guardarlos en el repositorio.
 | `data/calendario_propio.yaml` | Propio de Oviedo y del Seminario (**verificar con la Epacta**) |
 | `data/cantoral.json` | Catálogo extraído del cantoral (número, título, página, sección) |
 | `data/etiquetas_cantos.yaml` | Ajustes manuales de cantos (momentos, etiquetas, `solo_si`) |
-| `data/himnos.yaml` | Catálogo de himnos (de momento, solo los del cantoral) |
 | `scripts/extraer_cantoral.py` | Regenera `data/cantoral.json` desde el PDF del cantoral |
 
 ## Fuentes y derechos
@@ -79,7 +79,6 @@ Del cantoral solo se guardan títulos y páginas.
 ## Pendiente
 
 - [ ] Verificar el santoral y el propio de Oviedo con la **Epacta** (y completar memorias libres).
-- [ ] Catálogo de himnos desde el índice del **breviario** (volumen y página).
 - [ ] Traslado automático de solemnidades impedidas (ahora solo se avisa).
 - [x] Interfaz web para editar el borrador sin tocar YAML (mejoras: autenticación, aviso de cantos repetidos).
 - [ ] Exportar también a Word, si el encargado lo prefiere.
