@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# PDFs con derechos (breviario, misal, cantoral, epacta): nunca al repo público
+fuentes/
+
+# Salidas generadas (el YAML de cada semana sí se guarda: es el historial)
+semanas/*.html
+semanas/*.pdf

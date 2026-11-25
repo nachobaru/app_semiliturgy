@@ -1,0 +1,35 @@
+# Ajustes manuales del catálogo del cantoral (data/cantoral.json).
+# La clave es el número del canto. Todo lo que pongas aquí tiene prioridad
+# sobre lo que se dedujo automáticamente de la sección del cantoral.
+#
+# Campos:
+#   momentos: [entrada, ofertorio, comunion, salida]   -> sustituye los deducidos
+#   etiquetas: [...]          -> se AÑADEN a las deducidas
+#                                (general, adviento, navidad, cuaresma, pascua, virgen,
+#                                 covadonga, sagrado_corazon, santisimo, espiritu_santo,
+#                                 san_jose, santos, apostoles, martires, virgenes, difuntos)
+#   peso: 1.0                 -> >1 se propone más, <1 menos
+#   excluir: true             -> nunca se propone automáticamente
+#   solo_si: "Santiago"       -> solo se propone (y con prioridad) si el nombre de la
+#                                celebración contiene ese texto
+#
+# Ejemplos (vienen del propio cantoral o de la hoja de la semana XXXIII):
+
+8:   {etiquetas: [apostoles]}          # Anunciad día tras día: "para fiestas de santos apóstoles"
+10:  {momentos: [entrada], etiquetas: [virgenes]}   # Ven, esposa de Cristo
+135: {momentos: [ofertorio]}           # 1.ª estrofa H. de Covadonga, se usa de ofertorio
+136: {momentos: [ofertorio]}
+137: {momentos: [ofertorio]}
+104: {etiquetas: [cuaresma, santos], momentos: [entrada, salida]}  # Victoria, tú reinarás
+
+# Cantos de santos concretos
+155: {solo_si: "Francisco de Asís"}
+156: {solo_si: "Francisco de Asís"}
+157: {solo_si: "Buen Consejo"}
+158: {solo_si: "eminaristas"}
+159: {solo_si: "eminaristas"}
+160: {solo_si: "Catalina de Alejandría"}
+161: {solo_si: "Juan de Ávila"}
+162: {solo_si: "Santiago, apóstol"}
+153: {solo_si: "San José"}
+154: {solo_si: "San José"}

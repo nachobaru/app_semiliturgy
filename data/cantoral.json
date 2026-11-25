@@ -1,0 +1,3082 @@
+[
+ {
+  "n": 1,
+  "titulo": "Misa (Gorostidi)",
+  "pagina": 9,
+  "seccion": "Misa",
+  "subseccion": "Ordinario",
+  "momentos": [],
+  "etiquetas": [
+   "ordinario_misa"
+  ]
+ },
+ {
+  "n": 2,
+  "titulo": "Gloria (T. Aragüés)",
+  "pagina": 11,
+  "seccion": "Misa",
+  "subseccion": "Ordinario",
+  "momentos": [],
+  "etiquetas": [
+   "ordinario_misa"
+  ]
+ },
+ {
+  "n": 3,
+  "titulo": "Gloria (F. Palazón)",
+  "pagina": 13,
+  "seccion": "Misa",
+  "subseccion": "Ordinario",
+  "momentos": [],
+  "etiquetas": [
+   "ordinario_misa"
+  ]
+ },
+ {
+  "n": 4,
+  "titulo": "Aleluya, Amén (L. Deiss)",
+  "pagina": 14,
+  "seccion": "Misa",
+  "subseccion": "Ordinario",
+  "momentos": [],
+  "etiquetas": [
+   "ordinario_misa"
+  ]
+ },
+ {
+  "n": 5,
+  "titulo": "Aleluya (I)",
+  "pagina": 15,
+  "seccion": "Misa",
+  "subseccion": "Ordinario",
+  "momentos": [],
+  "etiquetas": [
+   "ordinario_misa"
+  ]
+ },
+ {
+  "n": 6,
+  "titulo": "Aleluya (II)",
+  "pagina": 15,
+  "seccion": "Misa",
+  "subseccion": "Ordinario",
+  "momentos": [],
+  "etiquetas": [
+   "ordinario_misa"
+  ]
+ },
+ {
+  "n": 7,
+  "titulo": "Cordero de Dios",
+  "pagina": 16,
+  "seccion": "Misa",
+  "subseccion": "Ordinario",
+  "momentos": [],
+  "etiquetas": [
+   "ordinario_misa"
+  ]
+ },
+ {
+  "n": 8,
+  "titulo": "Anunciad día tras día",
+  "pagina": 17,
+  "seccion": "Misa",
+  "subseccion": "Antífonas de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 9,
+  "titulo": "Jesucristo nos amó hasta el extremo",
+  "pagina": 18,
+  "seccion": "Misa",
+  "subseccion": "Antífonas de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 10,
+  "titulo": "Ven, esposa de Cristo",
+  "pagina": 19,
+  "seccion": "Misa",
+  "subseccion": "Antífonas de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 11,
+  "titulo": "Alabad siervos de Dios (L. Deiss)",
+  "pagina": 20,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 12,
+  "titulo": "Alrededor de tu mesa (F. Palazón)",
+  "pagina": 22,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 13,
+  "titulo": "A ti, Señor, levanto mi alma",
+  "pagina": 24,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 14,
+  "titulo": "Christus Vincit",
+  "pagina": 25,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 15,
+  "titulo": "Cristo ayer y Cristo hoy",
+  "pagina": 26,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 16,
+  "titulo": "Himnos de Victoria (G. F. Haendel)",
+  "pagina": 28,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 17,
+  "titulo": "Juntos como hermanos",
+  "pagina": 29,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 18,
+  "titulo": "Me adelantaré",
+  "pagina": 30,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 19,
+  "titulo": "Pueblo de reyes (L. Deiss)",
+  "pagina": 31,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 20,
+  "titulo": "Qué alegría cuando me dijeron",
+  "pagina": 33,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 21,
+  "titulo": "Reunidos en el nombre del Señor (F. Palazón)",
+  "pagina": 35,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 22,
+  "titulo": "Señor, me has llamado amigo",
+  "pagina": 37,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 23,
+  "titulo": "Te cantaremos, oh Señor",
+  "pagina": 38,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 24,
+  "titulo": "Te seguiré (M. Frissina)",
+  "pagina": 40,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 25,
+  "titulo": "Vamos cantando al Señor (J. A. Espinosa)",
+  "pagina": 41,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 26,
+  "titulo": "Vayamos jubilosos",
+  "pagina": 42,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 27,
+  "titulo": "Vienen con alegría",
+  "pagina": 43,
+  "seccion": "Misa",
+  "subseccion": "Cantos de entrada",
+  "momentos": [
+   "entrada"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 28,
+  "titulo": "Acuérdate, Señor, de tu Iglesia",
+  "pagina": 44,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 29,
+  "titulo": "Bendito seas, Señor (Pascual/Palazón)",
+  "pagina": 46,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 30,
+  "titulo": "Con amor te presento, Señor (C. Gabráin)",
+  "pagina": 48,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 31,
+  "titulo": "Este pan y vino",
+  "pagina": 49,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 32,
+  "titulo": "Esto que te doy (E. Ortiz)",
+  "pagina": 50,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 33,
+  "titulo": "Padre eterno, Dios piadoso (E. Goicoechea /A. Danaoz)",
+  "pagina": 51,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 34,
+  "titulo": "Señor, te ofrecemos (Aragués)",
+  "pagina": 52,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 35,
+  "titulo": "Unidos, Señor, en caridad (C. Gabaráin)",
+  "pagina": 53,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 36,
+  "titulo": "Te ofrecemos, Señor, este santo Sacrificio",
+  "pagina": 54,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 37,
+  "titulo": "Te ofrecemos, Señor (F. Palazón)",
+  "pagina": 55,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 38,
+  "titulo": "Te presentamos el vino y el pan",
+  "pagina": 57,
+  "seccion": "Misa",
+  "subseccion": "Cantos para la presentación de los dones",
+  "momentos": [
+   "ofertorio"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 39,
+  "titulo": "Acerquémonos todos al altar (F. Palazón)",
+  "pagina": 58,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 40,
+  "titulo": "Anunciaremos tu Reino",
+  "pagina": 60,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 41,
+  "titulo": "Al atardecer de la Vida (C. Gabaráin)",
+  "pagina": 61,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 42,
+  "titulo": "Canción del testigo",
+  "pagina": 62,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 43,
+  "titulo": "Cerca de ti, Señor",
+  "pagina": 63,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 44,
+  "titulo": "Como brotes de olivo",
+  "pagina": 64,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 45,
+  "titulo": "Como el racimo a la vid (J.M. de Miguel)",
+  "pagina": 65,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 46,
+  "titulo": "Cristo libertador",
+  "pagina": 67,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 47,
+  "titulo": "Donde hay caridad y amor",
+  "pagina": 69,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 48,
+  "titulo": "El Viñador (C. Gabaráin)",
+  "pagina": 70,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 49,
+  "titulo": "El pan de los hijos (A. Alcalde)",
+  "pagina": 71,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 50,
+  "titulo": "El pan del cielo (Popular Gallega)",
+  "pagina": 72,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 51,
+  "titulo": "Gustad y ved",
+  "pagina": 73,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 52,
+  "titulo": "Gustad y ved (F. Palazón)",
+  "pagina": 74,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 53,
+  "titulo": "Hoy vuelvo de lejos (C. Erdozáin)",
+  "pagina": 75,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 54,
+  "titulo": "Id y enseñad",
+  "pagina": 77,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 55,
+  "titulo": "Iglesia peregrina",
+  "pagina": 79,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 56,
+  "titulo": "La Alianza nueva",
+  "pagina": 81,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 57,
+  "titulo": "Las bienaventuranzas",
+  "pagina": 83,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 58,
+  "titulo": "Mis ojos al cielo (L. Deiss)",
+  "pagina": 84,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 59,
+  "titulo": "Nos convidas a tu mesa (A. Alcalde)",
+  "pagina": 85,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 60,
+  "titulo": "Si me falta el amor",
+  "pagina": 87,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 61,
+  "titulo": "Oh, buen Jesús",
+  "pagina": 89,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 62,
+  "titulo": "Oh, Señor, delante de ti (C. Erdozáin)",
+  "pagina": 90,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 63,
+  "titulo": "Pescador",
+  "pagina": 91,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 64,
+  "titulo": "Pescador de hombres",
+  "pagina": 93,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 65,
+  "titulo": "Quédate, buen Jesús (L. Iturriaga)",
+  "pagina": 95,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 66,
+  "titulo": "Te conocimos Señor (J. Madurga)",
+  "pagina": 96,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 67,
+  "titulo": "Tú eres, Señor, el pan de vida",
+  "pagina": 98,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 68,
+  "titulo": "Yo soy el pan de vida (S. Toole)",
+  "pagina": 100,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 69,
+  "titulo": "Vaso nuevo",
+  "pagina": 101,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 70,
+  "titulo": "Ven y sígueme (C. Erdozáin)",
+  "pagina": 102,
+  "seccion": "Misa",
+  "subseccion": "Cantos de comunión",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "general"
+  ]
+ },
+ {
+  "n": 71,
+  "titulo": "Esperando",
+  "pagina": 103,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Adviento",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "adviento"
+  ]
+ },
+ {
+  "n": 72,
+  "titulo": "La Virgen sueña caminos",
+  "pagina": 105,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Adviento",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "adviento"
+  ]
+ },
+ {
+  "n": 73,
+  "titulo": "Oh cielos, dadnos vuestro rocio “rorate",
+  "pagina": 107,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Adviento",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "adviento"
+  ]
+ },
+ {
+  "n": 74,
+  "titulo": "Preparad el camino (J. Berthier)",
+  "pagina": 108,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Adviento",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "adviento"
+  ]
+ },
+ {
+  "n": 75,
+  "titulo": "Ven Salvador (L. Deiss)",
+  "pagina": 109,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Adviento",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "adviento"
+  ]
+ },
+ {
+  "n": 76,
+  "titulo": "Ven, Salvador",
+  "pagina": 110,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Adviento",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "adviento"
+  ]
+ },
+ {
+  "n": 77,
+  "titulo": "Ven, ven, Señor",
+  "pagina": 111,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Adviento",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "adviento"
+  ]
+ },
+ {
+  "n": 78,
+  "titulo": "Adeste fideles",
+  "pagina": 112,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Navidad",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "navidad"
+  ]
+ },
+ {
+  "n": 79,
+  "titulo": "Aleluya, Aleluya, ha nacido el Salvador",
+  "pagina": 113,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Navidad",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "navidad"
+  ]
+ },
+ {
+  "n": 80,
+  "titulo": "En medio del silencio (T. Artacho; M. Praetorius)",
+  "pagina": 114,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Navidad",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "navidad"
+  ]
+ },
+ {
+  "n": 81,
+  "titulo": "Gaudete, Christus est natus",
+  "pagina": 115,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Navidad",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "navidad"
+  ]
+ },
+ {
+  "n": 82,
+  "titulo": "Hoy la Paz bajó del cielo",
+  "pagina": 116,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Navidad",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "navidad"
+  ]
+ },
+ {
+  "n": 83,
+  "titulo": "Noche de Dios (M. Gruber)",
+  "pagina": 117,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Navidad",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "navidad"
+  ]
+ },
+ {
+  "n": 84,
+  "titulo": "Acompaña a mi Dios alma mía (Via Crucis tradicional)",
+  "pagina": 118,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 85,
+  "titulo": "A ti levanto mis ojos",
+  "pagina": 120,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 86,
+  "titulo": "Cuando sea elevado sobre la tierra 2",
+  "pagina": 123,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 87,
+  "titulo": "Dios es fiel",
+  "pagina": 124,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 88,
+  "titulo": "Este es el día del Señor (J.A. Espinosa)",
+  "pagina": 125,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 89,
+  "titulo": "Llegó Simón Pedro",
+  "pagina": 126,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 90,
+  "titulo": "Llorando los pecados",
+  "pagina": 127,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 91,
+  "titulo": "Los niños hebreos (F. Palazón)",
+  "pagina": 128,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 92,
+  "titulo": "Me invocará",
+  "pagina": 129,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 93,
+  "titulo": "Nos has llamado al desierto",
+  "pagina": 131,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 94,
+  "titulo": "Nosotros hemos de gloriarnos",
+  "pagina": 132,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 95,
+  "titulo": "Oh Cruz fiel",
+  "pagina": 133,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 96,
+  "titulo": "Oh rostro ensangrentado (T. Taulé; M. Hassler)",
+  "pagina": 134,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 97,
+  "titulo": "Perdona a tu pueblo",
+  "pagina": 135,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 98,
+  "titulo": "Perdónanos nuestras culpas",
+  "pagina": 137,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 99,
+  "titulo": "Perdón, oh, Dios mío",
+  "pagina": 138,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 100,
+  "titulo": "Peregrino (C. Gabaráin)",
+  "pagina": 139,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 101,
+  "titulo": "Sube el Nazareno",
+  "pagina": 140,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 102,
+  "titulo": "Te pedimos perdón",
+  "pagina": 141,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 103,
+  "titulo": "Ved la cruz de salvación",
+  "pagina": 142,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 104,
+  "titulo": "Victoria, tú reinarás (T. Malvido; M. Julien)",
+  "pagina": 143,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Cuaresma y Semana Santa",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "cuaresma"
+  ]
+ },
+ {
+  "n": 105,
+  "titulo": "Acuérdate de Jesucristo",
+  "pagina": 144,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 106,
+  "titulo": "Resucitó (K. Argüello)",
+  "pagina": 145,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 107,
+  "titulo": "Canta con júbilo",
+  "pagina": 146,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 108,
+  "titulo": "Cristo, alegría del mundo",
+  "pagina": 147,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 109,
+  "titulo": "Cristo resucitó",
+  "pagina": 148,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 110,
+  "titulo": "En la mañana de resurrección",
+  "pagina": 149,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 111,
+  "titulo": "La fiesta del Señor",
+  "pagina": 150,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 112,
+  "titulo": "Oh, luz gozosa",
+  "pagina": 151,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 113,
+  "titulo": "Pascua Sagrada",
+  "pagina": 152,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 114,
+  "titulo": "Un cántico nuevo (Juan-Alfonso)",
+  "pagina": 153,
+  "seccion": "Tiempos litúrgicos",
+  "subseccion": "Pascua",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "pascua"
+  ]
+ },
+ {
+  "n": 115,
+  "titulo": "Ave de Fátima",
+  "pagina": 155,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 116,
+  "titulo": "Ave de Lourdes",
+  "pagina": 156,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 117,
+  "titulo": "Ave María (Popular)",
+  "pagina": 157,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 118,
+  "titulo": "Bajo tu amparo",
+  "pagina": 158,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 119,
+  "titulo": "Estrella y camino (C. Gabaráin)",
+  "pagina": 159,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 120,
+  "titulo": "Foco de luz",
+  "pagina": 160,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 121,
+  "titulo": "Hija de Sión (L. Deiss)",
+  "pagina": 161,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 122,
+  "titulo": "Humilde nazarena",
+  "pagina": 162,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 123,
+  "titulo": "Laudate Mariam",
+  "pagina": 163,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 124,
+  "titulo": "Magnificat (F. Palazón)",
+  "pagina": 164,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 125,
+  "titulo": "Oh, María, madre mía (N. Otaño)",
+  "pagina": 167,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 126,
+  "titulo": "Salve, madre (E. Torres)",
+  "pagina": 169,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 127,
+  "titulo": "Santa María del Amén (J. A. Espinosa)",
+  "pagina": 171,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 128,
+  "titulo": "Santa María del Camino",
+  "pagina": 172,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 129,
+  "titulo": "Salve popular",
+  "pagina": 173,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 130,
+  "titulo": "Tomad Virgen pura (N. Otaño)",
+  "pagina": 177,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 131,
+  "titulo": "Un día a verla iré",
+  "pagina": 178,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 132,
+  "titulo": "Venid y vamos todos (N. Otaño)",
+  "pagina": 179,
+  "seccion": "Fiestas",
+  "subseccion": "B. V. María",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen"
+  ]
+ },
+ {
+  "n": 133,
+  "titulo": "Alabanzas a María",
+  "pagina": 181,
+  "seccion": "Fiestas",
+  "subseccion": "B.V. María de Covadonga",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen",
+   "covadonga"
+  ]
+ },
+ {
+  "n": 134,
+  "titulo": "Himno de Covadonga (Sagastizabal)",
+  "pagina": 182,
+  "seccion": "Fiestas",
+  "subseccion": "B.V. María de Covadonga",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen",
+   "covadonga"
+  ]
+ },
+ {
+  "n": 135,
+  "titulo": "1ª Estrofa H. de Covadonga",
+  "pagina": 184,
+  "seccion": "Fiestas",
+  "subseccion": "B.V. María de Covadonga",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen",
+   "covadonga"
+  ]
+ },
+ {
+  "n": 136,
+  "titulo": "2ª Estrofa H. de Covadonga",
+  "pagina": 184,
+  "seccion": "Fiestas",
+  "subseccion": "B.V. María de Covadonga",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen",
+   "covadonga"
+  ]
+ },
+ {
+  "n": 137,
+  "titulo": "3ª Estrofa H. de Covadonga",
+  "pagina": 184,
+  "seccion": "Fiestas",
+  "subseccion": "B.V. María de Covadonga",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen",
+   "covadonga"
+  ]
+ },
+ {
+  "n": 138,
+  "titulo": "Virgen de Covadonga (F. Álvarez)",
+  "pagina": 185,
+  "seccion": "Fiestas",
+  "subseccion": "B.V. María de Covadonga",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "salida"
+  ],
+  "etiquetas": [
+   "virgen",
+   "covadonga"
+  ]
+ },
+ {
+  "n": 139,
+  "titulo": "Corazón santo, tú reinarás",
+  "pagina": 186,
+  "seccion": "Fiestas",
+  "subseccion": "Sagrado Corazón de Jesús",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "sagrado_corazon"
+  ]
+ },
+ {
+  "n": 140,
+  "titulo": "Dueño de mi vida (N. Otaño)",
+  "pagina": 187,
+  "seccion": "Fiestas",
+  "subseccion": "Sagrado Corazón de Jesús",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "sagrado_corazon"
+  ]
+ },
+ {
+  "n": 141,
+  "titulo": "Himno Nacional del Sagrado Corazón (A. Soto)",
+  "pagina": 188,
+  "seccion": "Fiestas",
+  "subseccion": "Sagrado Corazón de Jesús",
+  "momentos": [
+   "entrada",
+   "comunion",
+   "salida"
+  ],
+  "etiquetas": [
+   "sagrado_corazon"
+  ]
+ },
+ {
+  "n": 142,
+  "titulo": "Alabado sea el Santísimo",
+  "pagina": 190,
+  "seccion": "Fiestas",
+  "subseccion": "Santísimo Sacramento",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "santisimo"
+  ]
+ },
+ {
+  "n": 143,
+  "titulo": "Altísimo Señor (Popular)",
+  "pagina": 191,
+  "seccion": "Fiestas",
+  "subseccion": "Santísimo Sacramento",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "santisimo"
+  ]
+ },
+ {
+  "n": 144,
+  "titulo": "Bendito sea Dios",
+  "pagina": 192,
+  "seccion": "Fiestas",
+  "subseccion": "Santísimo Sacramento",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "santisimo"
+  ]
+ },
+ {
+  "n": 145,
+  "titulo": "Cantemos al amor de los amores (Sagastizabal)",
+  "pagina": 193,
+  "seccion": "Fiestas",
+  "subseccion": "Santísimo Sacramento",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "santisimo"
+  ]
+ },
+ {
+  "n": 146,
+  "titulo": "De rodillas, Señor ante el Sagrario",
+  "pagina": 194,
+  "seccion": "Fiestas",
+  "subseccion": "Santísimo Sacramento",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "santisimo"
+  ]
+ },
+ {
+  "n": 147,
+  "titulo": "La puerta del Sagrario (P. Bilbao)",
+  "pagina": 195,
+  "seccion": "Fiestas",
+  "subseccion": "Santísimo Sacramento",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "santisimo"
+  ]
+ },
+ {
+  "n": 148,
+  "titulo": "Tanto ha pedido el amor",
+  "pagina": 196,
+  "seccion": "Fiestas",
+  "subseccion": "Santísimo Sacramento",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "santisimo"
+  ]
+ },
+ {
+  "n": 149,
+  "titulo": "Tantum ergo (tradicional español)",
+  "pagina": 197,
+  "seccion": "Fiestas",
+  "subseccion": "Santísimo Sacramento",
+  "momentos": [
+   "comunion"
+  ],
+  "etiquetas": [
+   "santisimo"
+  ]
+ },
+ {
+  "n": 150,
+  "titulo": "El amor de Dios ha sido derramado",
+  "pagina": 198,
+  "seccion": "Fiestas",
+  "subseccion": "Espíritu Santo",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "espiritu_santo"
+  ]
+ },
+ {
+  "n": 151,
+  "titulo": "Envía tu espíritu",
+  "pagina": 199,
+  "seccion": "Fiestas",
+  "subseccion": "Espíritu Santo",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "espiritu_santo"
+  ]
+ },
+ {
+  "n": 152,
+  "titulo": "Oh, Señor, envía tu espíritu",
+  "pagina": 200,
+  "seccion": "Fiestas",
+  "subseccion": "Espíritu Santo",
+  "momentos": [
+   "entrada",
+   "comunion"
+  ],
+  "etiquetas": [
+   "espiritu_santo"
+  ]
+ },
+ {
+  "n": 153,
+  "titulo": "Himno I vísperas de San José",
+  "pagina": 202,
+  "seccion": "Fiestas",
+  "subseccion": "San José",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": [
+   "san_jose"
+  ]
+ },
+ {
+  "n": 154,
+  "titulo": "Hoy a tus pies (J. A. Poblete)",
+  "pagina": 203,
+  "seccion": "Fiestas",
+  "subseccion": "San José",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": [
+   "san_jose"
+  ]
+ },
+ {
+  "n": 155,
+  "titulo": "Alabado seas mi Señor (C. Gabaráin)",
+  "pagina": 205,
+  "seccion": "Fiestas",
+  "subseccion": "San Francisco y Buen Consejo",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 156,
+  "titulo": "Himno de Vísperas de San Francisco",
+  "pagina": 206,
+  "seccion": "Fiestas",
+  "subseccion": "San Francisco y Buen Consejo",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 157,
+  "titulo": "Himno a la Madre del Buen Consejo",
+  "pagina": 207,
+  "seccion": "Fiestas",
+  "subseccion": "San Francisco y Buen Consejo",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 158,
+  "titulo": "Himno a los Seminaristas mártires (L. Diéguez)",
+  "pagina": 208,
+  "seccion": "Fiestas",
+  "subseccion": "Otros santos",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 159,
+  "titulo": "Seminaristas Mártires Santos (J. I. Iglesias)",
+  "pagina": 209,
+  "seccion": "Fiestas",
+  "subseccion": "Otros santos",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 160,
+  "titulo": "Himno a Santa Catalina de Alejandría",
+  "pagina": 210,
+  "seccion": "Fiestas",
+  "subseccion": "Otros santos",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 161,
+  "titulo": "Himno a San Juan de Ávila",
+  "pagina": 211,
+  "seccion": "Fiestas",
+  "subseccion": "Otros santos",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 162,
+  "titulo": "Himno al Apóstol Santiago (J. Barcia/M. Soler)",
+  "pagina": 212,
+  "seccion": "Fiestas",
+  "subseccion": "Otros santos",
+  "momentos": [
+   "entrada",
+   "salida"
+  ],
+  "etiquetas": []
+ },
+ {
+  "n": 163,
+  "titulo": "Canto de ofertorio “Domine Iesu Christe”",
+  "pagina": 214,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 164,
+  "titulo": "Canto de Paz",
+  "pagina": 217,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 165,
+  "titulo": "Dale el descanso, Señor (C. Erdozáin)",
+  "pagina": 218,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 166,
+  "titulo": "Despidamos al hermano (C. Erdozáin)",
+  "pagina": 219,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 167,
+  "titulo": "Hacia ti, morada santa (K. Argüello)",
+  "pagina": 220,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 168,
+  "titulo": "La muerte no es el final (C. Gabaráin)",
+  "pagina": 222,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 169,
+  "titulo": "Las puertas de la nueva ciudad (C. Erdozáin)",
+  "pagina": 223,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 170,
+  "titulo": "Levanto mis ojos a los montes",
+  "pagina": 224,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 171,
+  "titulo": "Sí, me levantaré (L. Deiss)",
+  "pagina": 226,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 172,
+  "titulo": "Si vivimos",
+  "pagina": 227,
+  "seccion": "Fiestas",
+  "subseccion": "Exequias",
+  "momentos": [
+   "entrada",
+   "ofertorio",
+   "comunion"
+  ],
+  "etiquetas": [
+   "difuntos"
+  ]
+ },
+ {
+  "n": 173,
+  "titulo": "Benedictus",
+  "pagina": 229,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Liturgia de las Horas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 174,
+  "titulo": "Magnificat",
+  "pagina": 230,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Liturgia de las Horas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 175,
+  "titulo": "Alegre la mañana",
+  "pagina": 231,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Laudes",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 176,
+  "titulo": "Buenos días, Señor",
+  "pagina": 232,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Laudes",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 177,
+  "titulo": "En la noche",
+  "pagina": 233,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Laudes",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 178,
+  "titulo": "Eres la luz",
+  "pagina": 234,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Laudes",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 179,
+  "titulo": "Nacidos de la Luz",
+  "pagina": 235,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Laudes",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 180,
+  "titulo": "Oh Virgen María",
+  "pagina": 236,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Laudes",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 181,
+  "titulo": "Te damos gracias, Señor",
+  "pagina": 237,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Laudes",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 182,
+  "titulo": "Verbo de Dios",
+  "pagina": 238,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Laudes",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 183,
+  "titulo": "Salmos del Domingo de la I semana",
+  "pagina": 239,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Laudes",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 184,
+  "titulo": "Contigo avanza un pueblo",
+  "pagina": 243,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Vísperas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 185,
+  "titulo": "Cuando la luz del sol es ya poniente",
+  "pagina": 244,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Vísperas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 186,
+  "titulo": "Hora de la tarde",
+  "pagina": 245,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Vísperas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 187,
+  "titulo": "Libra mis ojos de la muerte",
+  "pagina": 246,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Himnos de Vísperas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 188,
+  "titulo": "La noche no interrumpe",
+  "pagina": 247,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Completas del Domingo",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 189,
+  "titulo": "Presentemos a Dios nuestras tareas",
+  "pagina": 248,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Completas del Domingo",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 190,
+  "titulo": "Tuyo es el día, Dios nuestro",
+  "pagina": 249,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Completas del Domingo",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 191,
+  "titulo": "Salmo 90",
+  "pagina": 250,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Completas del Domingo",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 192,
+  "titulo": "Nunc dimitis",
+  "pagina": 252,
+  "seccion": "Liturgia de las Horas",
+  "subseccion": "Completas del Domingo",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 193,
+  "titulo": "Envía tu Espíritu, Señor…",
+  "pagina": 253,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 194,
+  "titulo": "La boca del justo expone la sabiduría",
+  "pagina": 254,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 195,
+  "titulo": "Llega el esposo…",
+  "pagina": 255,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 196,
+  "titulo": "Los que sembraban con lágrimas…",
+  "pagina": 256,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 197,
+  "titulo": "No olvidéis las acciones del Señor",
+  "pagina": 257,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 198,
+  "titulo": "Paloma mía que anidas…",
+  "pagina": 258,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 199,
+  "titulo": "Que se me pegue la lengua al paladar…",
+  "pagina": 259,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 200,
+  "titulo": "Su linaje será perpetuo…",
+  "pagina": 260,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 201,
+  "titulo": "Tú eres sacerdote eterno…",
+  "pagina": 261,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 202,
+  "titulo": "Tú, Señor, eres el lote de mi heredad",
+  "pagina": 262,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 203,
+  "titulo": "Vamos alegres…",
+  "pagina": 263,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 204,
+  "titulo": "Va a entrar el Señor…",
+  "pagina": 264,
+  "seccion": "Salmos para la misa",
+  "subseccion": "Salmos para la misa",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 205,
+  "titulo": "Beata es, Virgo Maria (L. Gutiérrez)",
+  "pagina": 265,
+  "seccion": "Varios",
+  "subseccion": "Varios",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 206,
+  "titulo": "Cor dulce",
+  "pagina": 268,
+  "seccion": "Varios",
+  "subseccion": "Varios",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 207,
+  "titulo": "Espera en el Señor (I. Yepes)",
+  "pagina": 269,
+  "seccion": "Varios",
+  "subseccion": "Varios",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 208,
+  "titulo": "Iesu! Rex admirabilis (Palestrina)",
+  "pagina": 270,
+  "seccion": "Varios",
+  "subseccion": "Varios",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 209,
+  "titulo": "Iesu, salvator mundi (Menegali)",
+  "pagina": 271,
+  "seccion": "Varios",
+  "subseccion": "Varios",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 210,
+  "titulo": "Nada te turbe",
+  "pagina": 272,
+  "seccion": "Varios",
+  "subseccion": "Varios",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 211,
+  "titulo": "O salutaris Hostia (A. de la Roza)",
+  "pagina": 273,
+  "seccion": "Varios",
+  "subseccion": "Varios",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 212,
+  "titulo": "Véante mis ojos",
+  "pagina": 274,
+  "seccion": "Varios",
+  "subseccion": "Varios",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 213,
+  "titulo": "Misa I – tempore paschali – Lux et origo",
+  "pagina": 275,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 214,
+  "titulo": "Misa VIII – de Angelis",
+  "pagina": 276,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 215,
+  "titulo": "Kyrie IX – Cum iubilo",
+  "pagina": 278,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 216,
+  "titulo": "Misa XI",
+  "pagina": 279,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 217,
+  "titulo": "Misa XVIII – Deus genitor alme",
+  "pagina": 280,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 218,
+  "titulo": "Credo III",
+  "pagina": 282,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 219,
+  "titulo": "Asperges me, Domine",
+  "pagina": 283,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 220,
+  "titulo": "Adoro te devote",
+  "pagina": 284,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 221,
+  "titulo": "Attende Domine",
+  "pagina": 285,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 222,
+  "titulo": "Ave verum",
+  "pagina": 287,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 223,
+  "titulo": "Da pacem, Domine – Dominica XVIII post",
+  "pagina": 288,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 224,
+  "titulo": "Homo quidam - In honorem SS. Sacramenti",
+  "pagina": 289,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 225,
+  "titulo": "Inviolata",
+  "pagina": 290,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 226,
+  "titulo": "Pange lingua",
+  "pagina": 291,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 227,
+  "titulo": "Puer natus est nobis",
+  "pagina": 292,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 228,
+  "titulo": "Puer natus in Bethlehem",
+  "pagina": 293,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 229,
+  "titulo": "Lumen ad revelationem gentium - In",
+  "pagina": 295,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 230,
+  "titulo": "Parce Domine",
+  "pagina": 296,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 231,
+  "titulo": "Requiem aeternam",
+  "pagina": 298,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 232,
+  "titulo": "Rorate caeli",
+  "pagina": 299,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 233,
+  "titulo": "Salve Mater misericordiae",
+  "pagina": 301,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 234,
+  "titulo": "Statuit ei Dominus - Unius confessoris et pontificis",
+  "pagina": 303,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 235,
+  "titulo": "Te Deum (Tonus solemnis)",
+  "pagina": 304,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 236,
+  "titulo": "Ubi caritas et amor",
+  "pagina": 307,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 237,
+  "titulo": "Ut quant laxis – Himno en honor de S. Juan Bautista",
+  "pagina": 309,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 238,
+  "titulo": "Veni Creator Spiritus",
+  "pagina": 310,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 239,
+  "titulo": "Veni Sancte Spiritus",
+  "pagina": 311,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 240,
+  "titulo": "Veni, veni, Enmanuel",
+  "pagina": 313,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 241,
+  "titulo": "Vexila regis - Hebdomada Sancta",
+  "pagina": 315,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 242,
+  "titulo": "Victimae Paschali laudes - Sequentia I ad Tempus",
+  "pagina": 316,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 243,
+  "titulo": "Tonni communes – ad ritum initiaem",
+  "pagina": 317,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 244,
+  "titulo": "Ad Laudem: Benedictus – Tonus 8",
+  "pagina": 319,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 245,
+  "titulo": "Ad Vesperas: Magnificat – Tonus 8",
+  "pagina": 321,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 246,
+  "titulo": "Ad Completorium",
+  "pagina": 322,
+  "seccion": "Gregoriano",
+  "subseccion": "Gregoriano",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 247,
+  "titulo": "Alma Redemptoris Mater (tonus simplex)",
+  "pagina": 324,
+  "seccion": "Gregoriano",
+  "subseccion": "Antífonas marianas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 248,
+  "titulo": "Ave Regina caelorum (tonus simplex)",
+  "pagina": 325,
+  "seccion": "Gregoriano",
+  "subseccion": "Antífonas marianas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 249,
+  "titulo": "Regina caeli (tonus simplex)",
+  "pagina": 325,
+  "seccion": "Gregoriano",
+  "subseccion": "Antífonas marianas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 250,
+  "titulo": "Salve regina (tonus simplex)",
+  "pagina": 326,
+  "seccion": "Gregoriano",
+  "subseccion": "Antífonas marianas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 251,
+  "titulo": "Salve regina (tonus solemnis)",
+  "pagina": 327,
+  "seccion": "Gregoriano",
+  "subseccion": "Antífonas marianas",
+  "momentos": [],
+  "etiquetas": []
+ },
+ {
+  "n": 252,
+  "titulo": "Sub tuum praesidium",
+  "pagina": 327,
+  "seccion": "Gregoriano",
+  "subseccion": "Antífonas marianas",
+  "momentos": [],
+  "etiquetas": []
+ }
+]

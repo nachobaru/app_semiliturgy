@@ -1,0 +1,29 @@
+# Catálogo de himnos de Laudes y Vísperas.
+#
+# De momento solo contiene los himnos que tienen partitura en el cantoral.
+# PENDIENTE: completar con el índice de himnos del breviario (Liturgia de las Horas),
+# indicando volumen y página.
+#
+# Campos:
+#   titulo:   primer verso o título
+#   horas:    [laudes, visperas]
+#   tiempos:  [ordinario, adviento, navidad, cuaresma, pascua]  (vacío = cualquiera)
+#   etiquetas: [virgen, santos, martires, ...]   (para memorias y fiestas)
+#   fuente:   "Cantoral n.º 175" / "LH I, p. 123"
+
+- {titulo: "Alegre la mañana", horas: [laudes], tiempos: [ordinario], fuente: "Cantoral n.º 175"}
+- {titulo: "Buenos días, Señor", horas: [laudes], tiempos: [ordinario], fuente: "Cantoral n.º 176"}
+- {titulo: "En la noche", horas: [laudes], tiempos: [ordinario], fuente: "Cantoral n.º 177"}
+- {titulo: "Eres la luz", horas: [laudes], tiempos: [ordinario], fuente: "Cantoral n.º 178"}
+- {titulo: "Nacidos de la Luz", horas: [laudes], tiempos: [ordinario], fuente: "Cantoral n.º 179"}
+- {titulo: "Oh Virgen María", horas: [laudes], etiquetas: [virgen], fuente: "Cantoral n.º 180"}
+- {titulo: "Te damos gracias, Señor", horas: [laudes], tiempos: [ordinario], fuente: "Cantoral n.º 181"}
+- {titulo: "Verbo de Dios", horas: [laudes], tiempos: [ordinario], fuente: "Cantoral n.º 182"}
+- {titulo: "Contigo avanza un pueblo", horas: [visperas], tiempos: [ordinario], fuente: "Cantoral n.º 184"}
+- {titulo: "Cuando la luz del sol es ya poniente", horas: [visperas], tiempos: [ordinario], fuente: "Cantoral n.º 185"}
+- {titulo: "Hora de la tarde", horas: [visperas], tiempos: [ordinario], fuente: "Cantoral n.º 186"}
+- {titulo: "Libra mis ojos de la muerte", horas: [visperas], tiempos: [ordinario], fuente: "Cantoral n.º 187"}
+# Himnos que aparecen en la hoja de la semana XXXIII (falta completar fuente y tiempos):
+- {titulo: "Así: te necesito de carne y hueso", horas: [laudes], fuente: "LH (pendiente)"}
+- {titulo: "La niña María", horas: [laudes], etiquetas: [virgen], fuente: "LH (pendiente)"}
+- {titulo: "Este es el tiempo en que llegas", horas: [visperas], fuente: "LH (pendiente)"}

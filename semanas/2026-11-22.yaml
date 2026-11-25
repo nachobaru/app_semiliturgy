@@ -1,0 +1,130 @@
+# Borrador de la hoja de liturgia. Generado automáticamente: revísalo y edítalo.
+# - Cambia lo que quieras (himnos, prefacios, cantos, avisos...).
+# - Los cantos van como "número · título": el número sirve para no repetirlos
+#   en las semanas siguientes.
+# - Las "notas" son avisos de la app y NO salen en la hoja.
+# Después: python -m semiliturgy hoja /home/claude/app_semiliturgy/semanas/2026-11-22.yaml
+semana: '2026-11-22'
+titulo: Semana del 22 al 28 de noviembre
+salterio: II
+tiempo: Ordinario
+dias:
+- fecha: '2026-11-23'
+  dia: LUNES
+  celebracion: FERIA
+  color: verde
+  laudes:
+    himno: Buenos días, Señor
+    salmodia: Feria
+    benedictus: Feria
+  eucaristia:
+    formulario: Domingo XXXIV del tiempo ordinario
+    prefacio: Común V
+  cantos:
+    entrada: 18 · Me adelantaré
+    ofertorio: 37 · Te ofrecemos, Señor (F. Palazón)
+    comunion: 68 · Yo soy el pan de vida (S. Toole)
+  visperas:
+    himno: Libra mis ojos de la muerte
+    salmodia: Feria
+    magnificat: Feria
+- fecha: '2026-11-24'
+  dia: MARTES
+  celebracion: SANTOS ANDRÉS DUNG-LAC Y COMPAÑEROS, MÁRTIRES
+  color: rojo
+  laudes:
+    himno: Alegre la mañana
+    salmodia: Feria
+    benedictus: Feria
+  eucaristia:
+    formulario: Santos Andrés Dung-Lac y compañeros, mártires
+    prefacio: Mártires I
+  cantos:
+    entrada: 21 · Reunidos en el nombre del Señor (F. Palazón)
+    ofertorio: 36 · Te ofrecemos, Señor, este santo Sacrificio
+    comunion: 62 · Oh, Señor, delante de ti (C. Erdozáin)
+  visperas:
+    himno: Contigo avanza un pueblo
+    salmodia: Feria
+    magnificat: Feria
+- fecha: '2026-11-25'
+  dia: MIÉRCOLES
+  celebracion: FERIA
+  color: verde
+  laudes:
+    himno: En la noche
+    salmodia: Feria
+    benedictus: Feria
+  eucaristia:
+    formulario: Domingo XXXIV del tiempo ordinario
+    prefacio: Común VI
+  cantos:
+    entrada: 17 · Juntos como hermanos
+    ofertorio: 29 · Bendito seas, Señor (Pascual/Palazón)
+    comunion: 63 · Pescador
+  visperas:
+    himno: Hora de la tarde
+    salmodia: Feria
+    magnificat: Feria
+- fecha: '2026-11-26'
+  dia: JUEVES
+  celebracion: FERIA
+  color: verde
+  laudes:
+    himno: Te damos gracias, Señor
+    salmodia: Feria
+    benedictus: Feria
+  eucaristia:
+    formulario: Domingo XXXIV del tiempo ordinario
+    prefacio: Común I
+  cantos:
+    entrada: 26 · Vayamos jubilosos
+    ofertorio: 28 · Acuérdate, Señor, de tu Iglesia
+    comunion: 67 · Tú eres, Señor, el pan de vida
+  visperas:
+    himno: Cuando la luz del sol es ya poniente
+    salmodia: Feria
+    magnificat: Feria
+- fecha: '2026-11-27'
+  dia: VIERNES
+  celebracion: FERIA
+  color: verde
+  laudes:
+    himno: Eres la luz
+    salmodia: Feria
+    benedictus: Feria
+  eucaristia:
+    formulario: Domingo XXXIV del tiempo ordinario
+    prefacio: Común II
+  cantos:
+    entrada: 22 · Señor, me has llamado amigo
+    ofertorio: 32 · Esto que te doy (E. Ortiz)
+    comunion: 50 · El pan del cielo (Popular Gallega)
+  visperas:
+    himno: Libra mis ojos de la muerte
+    salmodia: Feria
+    magnificat: Feria
+- fecha: '2026-11-28'
+  dia: SÁBADO
+  celebracion: FERIA
+  color: verde
+  laudes:
+    himno: Nacidos de la Luz
+    salmodia: Feria
+    benedictus: Feria
+  eucaristia:
+    formulario: Domingo XXXIV del tiempo ordinario
+    prefacio: Común III
+  cantos:
+    entrada: 14 · Christus Vincit
+    ofertorio: 34 · Señor, te ofrecemos (Aragués)
+    comunion: 57 · Las bienaventuranzas
+  visperas:
+    de: Domingo I de Adviento
+    himno: Del tiempo
+    salmodia: I Vísperas del domingo (semana I)
+    magnificat: Propia
+avisos: ''
+notas:
+- 'LUNES 23: memoria libre opcional — San Clemente I, papa y mártir.'
+- 'MIÉRCOLES 25: memoria libre opcional — Santa Catalina de Alejandría, virgen y mártir.'

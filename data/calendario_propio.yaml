@@ -1,0 +1,9 @@
+# Celebraciones propias de la archidiócesis de Oviedo y del Seminario.
+# Mismo formato que santoral.yaml. Lo que esté aquí SUSTITUYE a la entrada
+# del santoral general en esa fecha.
+#
+# ⚠ PENDIENTE DE VERIFICAR CON LA EPACTA: estas entradas son un punto de
+# partida. Revisad grado, nombre y fecha antes de fiaros de ellas.
+
+"09-08": {nombre: "Nuestra Señora la Virgen de Covadonga, patrona de Asturias", grado: solemnidad, color: blanco, comun: virgen, ambito: oviedo, verificar: true}
+"12-10": {nombre: "Santa Eulalia de Mérida, virgen y mártir, patrona de la archidiócesis", grado: solemnidad, color: rojo, comun: martires, ambito: oviedo, verificar: true}

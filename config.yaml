@@ -1,0 +1,26 @@
+# Configuración del Seminario para generar la hoja de liturgia.
+
+# Días que aparecen en la hoja (la semana va de domingo a sábado).
+dias_en_hoja: [lunes, martes, miercoles, jueves, viernes, sabado]
+
+# Horas que se celebran cada día. Valores: laudes, eucaristia, visperas.
+# laudes_con_eucaristia: true -> en la hoja sale "LAUDES Y EUCARISTÍA" en un solo bloque.
+horario:
+  lunes:     {horas: [laudes, eucaristia, visperas]}
+  martes:    {horas: [laudes, eucaristia, visperas]}
+  miercoles: {horas: [laudes, eucaristia, visperas]}
+  jueves:    {horas: [laudes, eucaristia, visperas]}
+  viernes:   {horas: [laudes, eucaristia, visperas]}
+  sabado:    {horas: [laudes, eucaristia, visperas]}
+  domingo:   {horas: [laudes, eucaristia, visperas]}
+
+# Prefacios comunes que se van rotando en las ferias del tiempo ordinario.
+prefacios_comunes: ["Común I", "Común II", "Común III", "Común IV", "Común V", "Común VI"]
+
+# Antífonas del Benedictus/Magníficat en las memorias:
+#   "Feria"  -> como en la hoja actual
+#   "Propio o del común"
+antifonas_memoria: "Feria"
+
+# Cantos: no repetir un canto usado en las últimas N semanas (según semanas/*.yaml).
+semanas_sin_repetir_cantos: 3

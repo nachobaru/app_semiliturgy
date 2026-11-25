@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Hoja de liturgia · {{ hoja.titulo }}</title>
+<style>
+  @page { size: A4 landscape; margin: 9mm 10mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Times New Roman", "Liberation Serif", "DejaVu Serif", serif; font-size: 8.6pt;
+         color: #000; margin: 0; }
+  .rojo { color: #8b1a1a; }
+  h1 { text-align: center; font-size: 9pt; color: #8b1a1a; text-decoration: underline; margin: 0 0 4px; font-weight: bold; }
+  table.hoja { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  table.hoja td { border: 1px solid #000; vertical-align: top; padding: 0; }
+  .cab { background: #c0c0c0; text-align: center; color: #8b1a1a; padding: 3px 4px; min-height: 30px; }
+  .cab .dia { font-size: 12pt; font-weight: bold; letter-spacing: .5px; }
+  .cab .celeb { font-size: 7pt; letter-spacing: 1.2px; text-transform: uppercase; }
+  .cab.semana { font-weight: bold; font-size: 8.5pt; letter-spacing: 1.2px; text-transform: uppercase; padding: 6px; }
+  .cuerpo { padding: 3px 5px 5px; }
+  .bloque { margin-top: 2px; }
+  .titbloque { text-align: center; color: #8b1a1a; font-weight: bold; font-size: 7.8pt; letter-spacing: 1.2px;
+               border-bottom: 1px dashed #8b1a1a; padding-bottom: 1px; margin: 3px 0 4px; text-transform: uppercase; }
+  .campo { margin: 0 0 6px; }
+  .campo b { font-weight: bold; }
+  .lateral .campo { margin-bottom: 7px; }
+  .diacantos { text-align: center; text-decoration: underline; margin: 6px 0 4px; }
+  .n { color: #777; font-size: 7pt; }
+  .vacio { color: #999; font-style: italic; }
+  .avisos { white-space: pre-wrap; }
+  td.lateral { width: 25%; }
+</style>
+</head>
+<body>
+<h1>HOJA LITURGIA</h1>
+{% set filas = hoja.dias | batch(3) | list %}
+<table class="hoja">
+  {% for fila in filas %}
+  <tr>
+    {% if loop.first %}
+    <td class="lateral" rowspan="{{ filas|length }}">
+      <div class="cab semana">{{ hoja.titulo }}</div>
+      <div class="cuerpo">
+        <p class="campo"><b>SEMANA DE SALTERIO: {{ hoja.salterio }}</b></p>
+        <p class="campo"><b>TIEMPO: {{ hoja.tiempo }}</b></p>
+        <div class="titbloque">Cantos</div>
+        {% for d in hoja.dias if d.cantos and (d.cantos.values() | select | list) %}
+          <div class="diacantos">{{ d.dia }}</div>
+          {% for momento, etiqueta in [("entrada","Entrada"),("ofertorio","Ofertorio"),("comunion","Comunión")] %}
+            {% if d.cantos.get(momento) %}
+            <p class="campo">{{ etiqueta }}: {{ d.cantos[momento] | canto }}</p>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        <div class="titbloque" style="margin-top:10px">Avisos</div>
+        <div class="avisos">{{ hoja.avisos or "" }}</div>
+      </div>
+    </td>
+    {% endif %}
+    {% for d in fila %}
+    <td>
+      <div class="cab"><div class="dia">{{ d.dia }}</div><div class="celeb">{{ d.celebracion }}</div></div>
+      <div class="cuerpo">
+        {% if d.laudes %}
+          <div class="titbloque">{% if d.laudes_con_eucaristia and d.eucaristia %}Laudes y Eucaristía{% else %}Laudes{% endif %}</div>
+          {% if d.laudes.himno %}<p class="campo"><b>Himno:</b> {{ d.laudes.himno }}</p>{% endif %}
+          <p class="campo"><b>Salmodia:</b> {{ d.laudes.salmodia }}</p>
+          <p class="campo"><b>Benedictus:</b> {{ d.laudes.benedictus }}</p>
+        {% endif %}
+        {% if d.eucaristia %}
+          {% if not (d.laudes and d.laudes_con_eucaristia) %}<div class="titbloque">Eucaristía</div>{% endif %}
+          <p class="campo"><b>Formulario:</b> {{ d.eucaristia.formulario }}</p>
+          <p class="campo"><b>Prefacio:</b> {{ d.eucaristia.prefacio }}</p>
+        {% endif %}
+        {% if d.visperas %}
+          <div class="titbloque">{% if d.visperas.de %}I Vísperas{% else %}Vísperas{% endif %}</div>
+          {% if d.visperas.de %}<p class="campo"><b>De:</b> {{ d.visperas.de }}</p>{% endif %}
+          {% if d.visperas.himno %}<p class="campo"><b>Himno:</b> {{ d.visperas.himno }}</p>{% endif %}
+          <p class="campo"><b>Salmodia:</b> {{ d.visperas.salmodia }}</p>
+          <p class="campo"><b>Magnificat:</b> {{ d.visperas.magnificat }}</p>
+        {% endif %}
+      </div>
+    </td>
+    {% endfor %}
+    {% for _ in range(3 - fila|length) %}<td></td>{% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>
