@@ -9,3 +9,5 @@ fuentes/
 # Salidas generadas (el YAML de cada semana sí se guarda: es el historial)
 semanas/*.html
 semanas/*.pdf
+semanas/*.bak
+sitio/
