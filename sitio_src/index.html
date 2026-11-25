@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoja de liturgia · Seminario de Oviedo</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header class="top">✝ Hoja de liturgia · Seminario Metropolitano de Oviedo</header>
+<main>
+  <section class="barra-semana">
+    <div><label for="fecha">Semana que contiene el día</label>
+      <input type="date" id="fecha"></div>
+    <div><label for="semana">o elige una</label>
+      <select id="semana"></select></div>
+    <div id="estado" class="estado" role="status"></div>
+  </section>
+  <div id="aviso" class="aviso" hidden></div>
+  <div id="editor"></div>
+  <section id="acciones" class="barra" hidden>
+    <button id="imprimir">Imprimir / guardar PDF</button>
+    <button id="vista" class="sec">Actualizar vista previa</button>
+    <button id="yaml" class="sec">Descargar YAML</button>
+    <button id="restaurar" class="sec">Restaurar borrador</button>
+  </section>
+  <p class="nota">Los cambios se guardan solo en este navegador. Para conservarlos o compartirlos, descarga el
+    YAML y súbelo a <code>semanas/</code> del repositorio (así cuenta para no repetir cantos).
+    El PDF se obtiene en el diálogo de impresión («Guardar como PDF», papel A4 apaisado).</p>
+  <iframe id="previa" title="Vista previa de la hoja" hidden></iframe>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
