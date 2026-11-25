@@ -3,16 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>Hoja de liturgia · Seminario de Oviedo</title>
 <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-<header class="top">✝ Hoja de liturgia · Seminario Metropolitano de Oviedo</header>
+<header class="top"><div class="top-in">
+  <div class="cruz" aria-hidden="true">✝</div>
+  <div><h1>Hoja de liturgia</h1><p>Seminario Metropolitano de Oviedo</p></div>
+</div></header>
 <main>
-  <section class="barra-semana">
+  <section class="panel barra-semana">
     <div><label for="fecha">Semana que contiene el día</label>
       <input type="date" id="fecha"></div>
-    <div><label for="semana">o elige una</label>
+    <div><label for="semana">O elige una semana</label>
       <select id="semana"></select></div>
     <div id="estado" class="estado" role="status"></div>
   </section>
@@ -27,7 +31,8 @@
   <p class="nota">Los cambios se guardan solo en este navegador. Para conservarlos o compartirlos, descarga el
     YAML y súbelo a <code>semanas/</code> del repositorio (así cuenta para no repetir cantos).
     El PDF se obtiene en el diálogo de impresión («Guardar como PDF», papel A4 apaisado).</p>
-  <iframe id="previa" title="Vista previa de la hoja" hidden></iframe>
+  <h2 class="seccion" id="tit-previa" hidden>Vista previa de la hoja</h2>
+  <div class="papel" id="papel" hidden><iframe id="previa" title="Vista previa de la hoja"></iframe></div>
 </main>
 <script src="app.js"></script>
 </body>

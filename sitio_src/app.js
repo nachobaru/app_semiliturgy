@@ -104,7 +104,12 @@ function lineas(v, n) {
   }
   return out;
 }
-const aYaml = (h) => "# Hoja de liturgia exportada desde la web. Súbela a semanas/ para que cuente en el historial de cantos.\n"
+const aYaml = (h) => {
+  const limpia = JSON.parse(JSON.stringify(h));
+  for (const d of limpia.dias) { delete d.opciones; delete d.opcion; }   // en el YAML solo queda lo elegido
+  return aYamlTexto(limpia);
+};
+const aYamlTexto = (h) => "# Hoja de liturgia exportada desde la web. Súbela a semanas/ para que cuente en el historial de cantos.\n"
   + lineas(h, 0).join("\n") + "\n";
 
 /* ---------- interfaz ---------- */
@@ -124,11 +129,72 @@ function entrada(et, valor, onInput, lista) {
   l.appendChild(i); return l;
 }
 
+const CAMPOS_VARIANTE = ["celebracion", "color", "laudes_con_eucaristia", "laudes", "eucaristia", "cantos", "visperas"];
+
+/* Cambia la opción de un día: guarda lo editado en la variante actual y carga la elegida. */
+function elegirOpcion(dia, i) {
+  if (i === dia.opcion) return;
+  const actualV = dia.opciones[dia.opcion];
+  for (const k of CAMPOS_VARIANTE) { if (k in dia) actualV[k] = dia[k]; else delete actualV[k]; }
+  for (const k of CAMPOS_VARIANTE) delete dia[k];
+  const nueva = JSON.parse(JSON.stringify(dia.opciones[i]));
+  for (const k of CAMPOS_VARIANTE) if (k in nueva) dia[k] = nueva[k];
+  dia.opcion = i;
+}
+
+function selectorOpciones(dia, alCambiar) {
+  const caja = document.createElement("div"); caja.className = "opciones";
+  caja.setAttribute("role", "radiogroup"); caja.setAttribute("aria-label", "Celebración del día");
+  const t = document.createElement("div"); t.className = "tit"; t.textContent = "Este día hay varias opciones"; caja.appendChild(t);
+  dia.opciones.forEach((o, i) => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "opcion";
+    b.setAttribute("role", "radio"); b.setAttribute("aria-checked", String(i === dia.opcion));
+    const peq = document.createElement("small"); peq.textContent = o.tipo || "";
+    b.append(peq, document.createTextNode(o.etiqueta));
+    b.addEventListener("click", () => { elegirOpcion(dia, i); alCambiar(); });
+    caja.appendChild(b);
+  });
+  return caja;
+}
+
+function tarjetaDia(dia) {
+  const c = document.createElement("div"); c.className = "dia"; c.dataset.color = dia.color || "";
+  const cab = document.createElement("div"); cab.className = "dia-cab";
+  cab.innerHTML = "<h3></h3><span class='num'></span>";
+  cab.querySelector("h3").textContent = dia.dia; cab.querySelector(".num").textContent = dia.fecha.slice(8);
+  c.appendChild(cab);
+  const col = document.createElement("div"); col.className = "color"; col.textContent = "Color litúrgico: " + (dia.color || "—");
+  c.appendChild(col);
+  if (dia.opciones && dia.opciones.length > 1) {
+    c.appendChild(selectorOpciones(dia, () => {
+      guardar(); c.replaceWith(tarjetaDia(dia)); vistaPrevia();
+    }));
+  }
+  c.appendChild(entrada("Celebración", dia.celebracion, (v) => { dia.celebracion = v; guardar(); }));
+  for (const sec of SECCIONES) {
+    const bloque = dia[sec];
+    if (!bloque && sec !== "cantos") continue;
+    const fs = document.createElement("fieldset"), lg = document.createElement("legend");
+    lg.textContent = ETIQ[sec] + (sec === "visperas" && bloque.de ? " (I Vísperas)" : ""); fs.appendChild(lg);
+    const claves = sec === "cantos" ? [...new Set([...Object.keys(bloque || {}), ...MOMENTOS])] : Object.keys(bloque);
+    for (const k of claves) {
+      const lista = sec === "cantos" ? "lista-cantos" : k === "himno" ? "lista-himnos" : null;
+      fs.appendChild(entrada(ETIQ[k] || k, (bloque || {})[k], (v) => { (dia[sec] = dia[sec] || {})[k] = v; guardar(); }, lista));
+    }
+    c.appendChild(fs);
+  }
+  return c;
+}
+
 function pintarEditor() {
   const ed = $("editor"); ed.replaceChildren();
-  const t = document.createElement("h2"); t.textContent = hoja.titulo; ed.appendChild(t);
-  const sub = document.createElement("div"); sub.className = "estado";
-  sub.textContent = `Salterio ${hoja.salterio} · Tiempo ${hoja.tiempo}`; ed.appendChild(sub);
+  const cab = document.createElement("div"); cab.className = "semana-cab";
+  const t = document.createElement("h2"); t.textContent = hoja.titulo; cab.appendChild(t);
+  const chips = document.createElement("div"); chips.className = "chips";
+  for (const x of [`Salterio ${hoja.salterio}`, `Tiempo ${hoja.tiempo}`]) {
+    const s = document.createElement("span"); s.className = "chip"; s.textContent = x; chips.appendChild(s);
+  }
+  cab.appendChild(chips); ed.appendChild(cab);
   if (hoja.notas && hoja.notas.length) {
     const det = document.createElement("details"); det.className = "notas"; det.open = true;
     const s = document.createElement("summary"); s.textContent = "Avisos de la app (no salen en la hoja)"; det.appendChild(s);
@@ -136,37 +202,20 @@ function pintarEditor() {
     for (const n of hoja.notas) { const li = document.createElement("li"); li.textContent = n; ul.appendChild(li); }
     det.appendChild(ul); ed.appendChild(det);
   }
-  ed.appendChild(entrada("Título de la hoja", hoja.titulo, (v) => { hoja.titulo = v; guardar(); }));
+  const tt = entrada("Título de la hoja", hoja.titulo, (v) => { hoja.titulo = v; guardar(); });
+  tt.className = "titulo-hoja"; ed.appendChild(tt);
   const grid = document.createElement("div"); grid.className = "dias";
-  for (const dia of hoja.dias) {
-    const c = document.createElement("div"); c.className = "dia";
-    c.innerHTML = "<h3></h3><div class='color'></div>";
-    c.querySelector("h3").textContent = `${dia.dia} ${dia.fecha.slice(8)}`;
-    c.querySelector(".color").textContent = dia.color || "";
-    c.appendChild(entrada("Celebración", dia.celebracion, (v) => { dia.celebracion = v; guardar(); }));
-    for (const sec of SECCIONES) {
-      const bloque = dia[sec];
-      if (!bloque && sec !== "cantos") continue;
-      const fs = document.createElement("fieldset"), lg = document.createElement("legend");
-      lg.textContent = ETIQ[sec] + (sec === "visperas" && bloque.de ? " (I Vísperas)" : ""); fs.appendChild(lg);
-      const claves = sec === "cantos" ? [...new Set([...Object.keys(bloque || {}), ...MOMENTOS])] : Object.keys(bloque);
-      for (const k of claves) {
-        const lista = sec === "cantos" ? "lista-cantos" : k === "himno" ? "lista-himnos" : null;
-        fs.appendChild(entrada(ETIQ[k] || k, (bloque || {})[k], (v) => { (dia[sec] = dia[sec] || {})[k] = v; guardar(); }, lista));
-      }
-      c.appendChild(fs);
-    }
-    grid.appendChild(c);
-  }
+  for (const dia of hoja.dias) grid.appendChild(tarjetaDia(dia));
   ed.appendChild(grid);
-  const l = document.createElement("label"); l.textContent = "Avisos de la semana (salen en la hoja)"; l.style.marginTop = "16px";
+  const l = document.createElement("label"); l.textContent = "Avisos de la semana (salen en la hoja)"; l.style.marginTop = "18px";
   const ta = document.createElement("textarea"); ta.value = hoja.avisos || "";
   ta.addEventListener("input", () => { hoja.avisos = ta.value; guardar(); });
   l.appendChild(ta); ed.appendChild(l);
 }
 
 function vistaPrevia() {
-  const f = $("previa"); f.hidden = false; f.srcdoc = renderHoja(hoja);
+  $("tit-previa").hidden = false; $("papel").hidden = false;
+  $("previa").srcdoc = renderHoja(hoja);
 }
 
 function abrir(id) {
@@ -207,7 +256,7 @@ async function iniciar() {
   $("fecha").addEventListener("change", (e) => e.target.value && abrir(domingoDe(e.target.value)));
   $("vista").addEventListener("click", vistaPrevia);
   $("imprimir").addEventListener("click", () => {
-    const f = $("previa"); f.hidden = false; f.srcdoc = renderHoja(hoja);
+    const f = $("previa"); $("tit-previa").hidden = false; $("papel").hidden = false; f.srcdoc = renderHoja(hoja);
     f.onload = () => { f.onload = null; f.contentWindow.focus(); f.contentWindow.print(); };
   });
   $("yaml").addEventListener("click", () => {

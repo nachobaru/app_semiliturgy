@@ -10,6 +10,7 @@ Las semanas que ya existen en `semanas/*.yaml` (revisadas a mano) se respetan ta
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import re
 import shutil
@@ -34,6 +35,34 @@ def css_de_la_hoja() -> str:
     return re.search(r"<style>(.*?)</style>", html, re.S).group(1).strip()
 
 
+CAMPOS_VARIANTE = ("celebracion", "color", "laudes_con_eucaristia", "laudes", "eucaristia", "cantos", "visperas")
+
+
+def injertar_opciones(real: dict, cfg: dict, carpeta: Path) -> dict:
+    """Añade a una hoja revisada a mano las opciones de los días con memorias libres.
+
+    Lo que hay en el YAML revisado manda: pasa a ser la variante activa (la que coincide por formulario;
+    si ninguna coincide, la primera) y las demás variantes salen del borrador calculado.
+    """
+    gen = generar_borrador(date.fromisoformat(real["semana"]), cfg, carpeta_semanas=carpeta, con_opciones=True)
+    por_fecha = {d["fecha"]: d for d in gen["dias"]}
+    hoja = copy.deepcopy(real)
+    for dia in hoja["dias"]:
+        g = por_fecha.get(dia["fecha"])
+        if not g or "opciones" not in g:
+            continue
+        opciones = copy.deepcopy(g["opciones"])
+        formulario = (dia.get("eucaristia") or {}).get("formulario")
+        idx = next((i for i, o in enumerate(opciones) if (o.get("eucaristia") or {}).get("formulario") == formulario), 0)
+        for k in CAMPOS_VARIANTE:
+            opciones[idx].pop(k, None)
+            if k in dia:
+                opciones[idx][k] = copy.deepcopy(dia[k])
+        dia["opciones"], dia["opcion"] = opciones, idx
+    hoja["notas"] = [n for n in hoja.get("notas", []) if "memoria libre opcional" not in n]
+    return hoja
+
+
 def semanas(n: int, desde: date) -> dict[str, dict]:
     cfg = cargar_config()
     out: dict[str, dict] = {}
@@ -41,12 +70,13 @@ def semanas(n: int, desde: date) -> dict[str, dict]:
         tmp = Path(t)
         for p in sorted((RAIZ / "semanas").glob("*.yaml")):  # revisadas a mano: historial y prioridad
             shutil.copy(p, tmp / p.name)
-            out[p.stem] = cargar_hoja(p)
+        for p in sorted((RAIZ / "semanas").glob("*.yaml")):
+            out[p.stem] = injertar_opciones(cargar_hoja(p), cfg, tmp)
         for i in range(n):
             d = domingo_de(desde) + timedelta(weeks=i)
             if d.isoformat() in out:
                 continue
-            hoja = generar_borrador(d, cfg, carpeta_semanas=tmp)
+            hoja = generar_borrador(d, cfg, carpeta_semanas=tmp, con_opciones=True)
             guardar_borrador(hoja, tmp / f"{d.isoformat()}.yaml")  # para el historial de la siguiente
             out[d.isoformat()] = hoja
     return dict(sorted(out.items()))
