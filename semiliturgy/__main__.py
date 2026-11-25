@@ -3,6 +3,7 @@
     python -m semiliturgy dia 2026-11-21
     python -m semiliturgy borrador 2026-11-23        # cualquier fecha de la semana
     python -m semiliturgy hoja semanas/2026-11-22.yaml
+    python -m semiliturgy web                        # interfaz web en http://127.0.0.1:5000
 """
 from __future__ import annotations
 
@@ -46,6 +47,11 @@ def cmd_hoja(a):
         print(p)
 
 
+def cmd_web(a):
+    from .web import crear_app
+    crear_app().run(host=a.host, port=a.puerto, debug=False)
+
+
 def main():
     p = argparse.ArgumentParser(prog="semiliturgy", description="Hoja de liturgia del Seminario")
     sub = p.add_subparsers(required=True)
@@ -61,6 +67,10 @@ def main():
     s.add_argument("yaml")
     s.add_argument("--sin-pdf", action="store_true")
     s.set_defaults(func=cmd_hoja)
+    s = sub.add_parser("web", help="Arranca la interfaz web")
+    s.add_argument("--host", default="127.0.0.1")
+    s.add_argument("--puerto", type=int, default=5000)
+    s.set_defaults(func=cmd_web)
     a = p.parse_args()
     a.func(a)
 

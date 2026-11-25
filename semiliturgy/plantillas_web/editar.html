@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block titulo %}{{ hoja.titulo }}{% endblock %}
+{% block cuerpo %}
+<h1>{{ hoja.titulo }}</h1>
+<p>Salterio {{ hoja.salterio }} · Tiempo {{ hoja.tiempo }}</p>
+{% if guardado %}<div class="aviso ok">Guardado en semanas/{{ semana }}.yaml.</div>{% endif %}
+{% if hoja.notas %}
+<details class="notas" open><summary><b>Avisos de la app</b> (no salen en la hoja)</summary>
+  <ul>{% for n in hoja.notas %}<li>{{ n }}</li>{% endfor %}</ul></details>
+{% endif %}
+
+<datalist id="lista-cantos">{% for c in cantos %}<option value="{{ c }}">{% endfor %}</datalist>
+<datalist id="lista-himnos">{% for h in himnos %}<option value="{{ h }}">{% endfor %}</datalist>
+
+<form method="post" action="{{ url_for('editar', semana=semana) }}">
+  <label for="titulo">Título de la hoja</label>
+  <input type="text" id="titulo" name="titulo" value="{{ hoja.titulo }}">
+
+  <div class="dias" style="margin-top:12px">
+  {% for dia in hoja.dias %}{% set i = loop.index0 %}
+    <div class="dia">
+      <h3>{{ dia.dia }} {{ dia.fecha[8:] }}</h3>
+      <div class="color">{{ dia.color }}</div>
+      <label for="d{{ i }}c">Celebración</label>
+      <input type="text" id="d{{ i }}c" name="d{{ i }}.celebracion" value="{{ dia.celebracion }}">
+      {% for sec in secciones %}
+        {% set bloque = dia.get(sec) %}
+        {% if bloque or sec == 'cantos' %}
+        <fieldset><legend>{{ etiquetas[sec] }}{% if sec == 'visperas' and bloque.de %} (I Vísperas){% endif %}</legend>
+          {% set claves = momentos if sec == 'cantos' else bloque.keys() | list %}
+          {% for k in claves %}
+            <label for="d{{ i }}{{ sec }}{{ k }}">{{ etiquetas.get(k, k) }}</label>
+            <input type="text" id="d{{ i }}{{ sec }}{{ k }}" name="d{{ i }}.{{ sec }}.{{ k }}"
+                   value="{{ (bloque or {}).get(k, '') }}"
+                   {% if sec == 'cantos' %}list="lista-cantos"{% elif k == 'himno' %}list="lista-himnos"{% endif %}>
+          {% endfor %}
+        </fieldset>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+  </div>
+
+  <label for="avisos" style="margin-top:16px">Avisos de la semana (salen en la hoja)</label>
+  <textarea id="avisos" name="avisos">{{ hoja.avisos or '' }}</textarea>
+
+  <div class="barra">
+    <button>Guardar</button>
+    <a class="btn sec" href="{{ url_for('vista_hoja', semana=semana) }}" target="_blank">Vista previa</a>
+    <a class="btn sec" href="{{ url_for('pdf', semana=semana) }}">Descargar PDF</a>
+    <a class="btn sec" href="{{ url_for('index') }}">Volver</a>
+  </div>
+</form>
+
+<form method="post" action="{{ url_for('crear') }}" style="margin-top:24px"
+      onsubmit="return confirm('Se descartarán tus cambios y se volverá a generar el borrador (queda una copia .bak). ¿Seguir?')">
+  <input type="hidden" name="fecha" value="{{ semana }}"><input type="hidden" name="forzar" value="1">
+  <button class="sec">Regenerar borrador desde cero</button>
+</form>
+{% endblock %}

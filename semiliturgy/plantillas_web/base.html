@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block titulo %}Hoja de liturgia{% endblock %} · Seminario de Oviedo</title>
+<style>
+  :root { --rojo:#8b1a1a; --gris:#f3f1ee; --borde:#d8d4cc; --texto:#222; --fondo:#fff; --acento:#8b1a1a; }
+  @media (prefers-color-scheme: dark) {
+    :root { --rojo:#e08a8a; --gris:#26231f; --borde:#444; --texto:#eee; --fondo:#161412; --acento:#c25a5a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.45 system-ui, sans-serif; color:var(--texto); background:var(--fondo); }
+  header.top { background:var(--gris); border-bottom:1px solid var(--borde); padding:12px 16px; }
+  header.top a { color:var(--rojo); font-weight:700; text-decoration:none; }
+  main { max-width:1100px; margin:0 auto; padding:16px; }
+  h1 { color:var(--rojo); font-size:1.4rem; margin:.2em 0 .6em; }
+  h2 { color:var(--rojo); font-size:1.05rem; margin:0 0 .5em; text-transform:uppercase; letter-spacing:.05em; }
+  label { display:block; font-size:.85rem; color:#777; margin:.5em 0 .15em; }
+  input[type=text], input[type=date], textarea {
+    width:100%; padding:8px; border:1px solid var(--borde); border-radius:6px; font:inherit;
+    background:var(--fondo); color:var(--texto); }
+  textarea { min-height:6em; }
+  button, .btn { display:inline-block; padding:9px 16px; border-radius:6px; border:1px solid var(--acento);
+    background:var(--acento); color:#fff; font:inherit; cursor:pointer; text-decoration:none; }
+  button.sec, .btn.sec { background:transparent; color:var(--rojo); }
+  .fila { display:flex; gap:8px; flex-wrap:wrap; align-items:end; }
+  .aviso { padding:10px 14px; border-radius:6px; background:var(--gris); border-left:4px solid var(--acento); margin:12px 0; }
+  .ok { border-left-color:#2e7d32; }
+  ul.semanas { list-style:none; padding:0; }
+  ul.semanas li { display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;
+    padding:10px 0; border-bottom:1px solid var(--borde); }
+  .dias { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:12px; }
+  .dia { border:1px solid var(--borde); border-radius:8px; padding:12px; }
+  .dia h3 { margin:0; color:var(--rojo); }
+  .dia .color { font-size:.8rem; color:#777; }
+  fieldset { border:0; border-top:1px dashed var(--borde); margin:10px 0 0; padding:6px 0 0; }
+  legend { color:var(--rojo); font-weight:700; font-size:.8rem; text-transform:uppercase; padding:0 6px 0 0; }
+  .barra { position:sticky; bottom:0; background:var(--fondo); border-top:1px solid var(--borde);
+    padding:10px 0; display:flex; gap:8px; flex-wrap:wrap; }
+  details.notas { margin:12px 0; }
+</style>
+</head>
+<body>
+<header class="top"><a href="{{ url_for('index') }}">✝ Hoja de liturgia · Seminario Metropolitano de Oviedo</a></header>
+<main>{% block cuerpo %}{% endblock %}</main>
+</body>
+</html>

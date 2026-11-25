@@ -27,6 +27,17 @@ python -m semiliturgy borrador 2026-11-23          # crea semanas/2026-11-22.yam
 python -m semiliturgy hoja semanas/2026-11-22.yaml # genera .html y .pdf
 ```
 
+### Interfaz web
+
+```bash
+python -m semiliturgy web      # http://127.0.0.1:5000
+```
+
+Lista las semanas, crea el borrador de cualquier fecha, permite editar cada día (con
+autocompletado de cantos e himnos), guardar en `semanas/*.yaml`, ver la hoja y descargar el PDF.
+No tiene usuarios ni contraseña: escucha solo en `127.0.0.1`. No la expongas a internet
+(`--host 0.0.0.0`) sin ponerle delante autenticación.
+
 Los YAML de `semanas/` son también el **historial**: de ahí se saca qué cantos se han usado
 para no repetirlos. Conviene guardarlos en el repositorio.
 
@@ -38,6 +49,7 @@ para no repetirlos. Conviene guardarlos en el repositorio.
 | `semiliturgy/borrador.py` | Reglas de cada campo de la hoja y generación del borrador |
 | `semiliturgy/cantos.py` | Catálogo del cantoral y sugerencia de cantos |
 | `semiliturgy/hoja.py`, `plantillas/hoja.html` | Render HTML/PDF |
+| `semiliturgy/web.py`, `plantillas_web/` | Interfaz web (Flask) |
 | `config.yaml` | Horario por día, prefacios comunes, criterios del Seminario |
 | `data/santoral.yaml` | Calendario Romano General + España |
 | `data/calendario_propio.yaml` | Propio de Oviedo y del Seminario (**verificar con la Epacta**) |
@@ -57,5 +69,5 @@ Del cantoral solo se guardan títulos y páginas.
 - [ ] Verificar el santoral y el propio de Oviedo con la **Epacta** (y completar memorias libres).
 - [ ] Catálogo de himnos desde el índice del **breviario** (volumen y página).
 - [ ] Traslado automático de solemnidades impedidas (ahora solo se avisa).
-- [ ] Interfaz web para editar el borrador sin tocar YAML.
+- [x] Interfaz web para editar el borrador sin tocar YAML (mejoras: autenticación, aviso de cantos repetidos).
 - [ ] Exportar también a Word, si el encargado lo prefiere.

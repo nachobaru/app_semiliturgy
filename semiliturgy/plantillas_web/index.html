@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+<h1>Semanas</h1>
+{% if error %}<div class="aviso">{{ error }}</div>{% endif %}
+<form method="post" action="{{ url_for('crear') }}" class="fila">
+  <div><label for="fecha">Crear borrador de la semana que contiene el día…</label>
+    <input type="date" id="fecha" name="fecha" value="{{ hoy }}" required></div>
+  <button>Crear / abrir semana</button>
+</form>
+<p style="color:#777;font-size:.9rem">Si la semana ya existe se abre tal cual, sin tocar tus cambios.</p>
+<ul class="semanas">
+{% for s in semanas %}
+  <li><span><b>{{ s.id }}</b> · {{ s.titulo }}</span>
+      <span><a class="btn sec" href="{{ url_for('editar', semana=s.id) }}">Editar</a>
+            <a class="btn sec" href="{{ url_for('vista_hoja', semana=s.id) }}" target="_blank">Vista previa</a>
+            <a class="btn sec" href="{{ url_for('pdf', semana=s.id) }}">PDF</a></span></li>
+{% else %}
+  <li>Aún no hay semanas. Crea la primera arriba.</li>
+{% endfor %}
+</ul>
+{% endblock %}
