@@ -99,3 +99,12 @@ def test_cabecera_de_ferias_con_entidad(tmp_path):
                 "2026-12-21")["celebracion"] == "21 DE DICIEMBRE"   # memoria libre en feria privilegiada: no la sustituye
     assert _dia(generar_borrador(date(2026, 12, 15), cargar_config(), carpeta_semanas=tmp_path),
                 "2026-12-15")["celebracion"] == "FERIA"
+
+
+def test_cabecera_semana_santa_y_octavas(tmp_path):
+    def cab(f):
+        return _dia(generar_borrador(f, cargar_config(), carpeta_semanas=tmp_path), f.isoformat())["celebracion"]
+    assert cab(date(2027, 3, 22)) == "LUNES SANTO"
+    assert cab(date(2027, 3, 29)) == "LUNES DE LA OCTAVA DE PASCUA"
+    assert cab(date(2026, 12, 29)) == "DÍA 5.º DE LA OCTAVA DE NAVIDAD"
+    assert cab(date(2027, 4, 5)) == "FERIA"

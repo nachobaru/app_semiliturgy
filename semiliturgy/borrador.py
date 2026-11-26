@@ -179,8 +179,8 @@ def prefacio(d: DiaLiturgico, cfg: dict, rot: Rotador) -> str:
 def etiqueta_celebracion(d: DiaLiturgico) -> str:
     c = d.celebracion
     if c.grado == "feria":
-        if c.nombre == "Miércoles de Ceniza":
-            return "MIÉRCOLES DE CENIZA"
+        if c.nombre == "Miércoles de Ceniza" or d.tiempo.nombre == "semana_santa" or "Octava" in c.nombre:
+            return c.nombre.upper()        # Ceniza, Lunes/Martes/Miércoles Santo, octavas de Navidad y Pascua
         if d.tiempo.nombre == "adviento" and d.fecha.month == 12 and 17 <= d.fecha.day <= 24:
             return f"{d.fecha.day} DE DICIEMBRE"   # ferias mayores de Adviento: tienen entidad propia
         return "FERIA"
