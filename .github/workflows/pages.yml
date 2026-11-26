@@ -17,11 +17,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  desplegar:
+  # Dos trabajos, como en la plantilla oficial de GitHub Pages: el despliegue empieza cuando el
+  # artefacto ya está registrado (en un solo trabajo, a veces deploy-pages no lo encontraba).
+  construir:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.despliegue.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -33,5 +32,13 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: sitio
+
+  desplegar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
       - id: despliegue
         uses: actions/deploy-pages@v4
