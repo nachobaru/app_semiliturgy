@@ -25,7 +25,8 @@ HIMNO_COMUN = {
     "pastores": "Del común de pastores",
     "doctores": "Del común de doctores",
     "virgenes": "Del común de vírgenes",
-    "santos": "Del común de santos",
+    "santos": "Del común de santos varones",
+    "santas": "Del común de santas mujeres",
     "apostoles": "Del común de apóstoles",
 }
 # Valores que se ofrecen al editar el himno (autocompletado en las interfaces web).
@@ -92,21 +93,27 @@ def antifona_evangelica(d: DiaLiturgico, cfg: dict) -> str:
     return "Feria"
 
 
+TIEMPOS_ESPECIALES = ("adviento", "navidad", "cuaresma", "semana_santa", "pascua")
+
+
 def himno(d: DiaLiturgico) -> str:
     """En la hoja no se pone el título del himno, sino de dónde se toma.
 
-    Feria -> "Feria"; domingo -> "Del domingo" (o "Del tiempo" fuera del ordinario);
-    solemnidad -> "Propio"; fiesta o memoria -> "Del común de ..." si tiene común y el santoral
-    no le marca `himno: propio`; si no, "Propio".
+    Feria -> "Feria" (en Adviento, Navidad, Cuaresma y Pascua, "Del tiempo");
+    domingo -> "Del domingo" (o "Del tiempo" fuera del ordinario); solemnidad -> "Propio";
+    fiesta o memoria -> "Del común de ...": se usa `himno` del santoral si lo hay (un común o
+    "propio") y si no, su `comun`; sin ninguno de los dos, "Propio".
     """
     c = d.celebracion
+    especial = d.tiempo.nombre in TIEMPOS_ESPECIALES
     if c.grado == "feria":
-        return "Feria"
+        return "Del tiempo" if especial else "Feria"
     if c.grado == "domingo":
-        return "Del domingo" if d.tiempo.nombre == "ordinario" else "Del tiempo"
-    if c.grado in ("solemnidad", "triduo") or (c.himno or "").lower() == "propio" or not c.comun:
+        return "Del tiempo" if especial else "Del domingo"
+    if c.grado in ("solemnidad", "triduo"):
         return "Propio"
-    return HIMNO_COMUN.get(c.comun, "Propio")
+    clave = (c.himno or c.comun or "propio").lower()
+    return HIMNO_COMUN.get(clave, "Propio")
 
 
 def tiene_primeras_visperas(hoy: DiaLiturgico, mañana: DiaLiturgico) -> bool:
@@ -172,6 +179,10 @@ def prefacio(d: DiaLiturgico, cfg: dict, rot: Rotador) -> str:
 def etiqueta_celebracion(d: DiaLiturgico) -> str:
     c = d.celebracion
     if c.grado == "feria":
+        if c.nombre == "Miércoles de Ceniza":
+            return "MIÉRCOLES DE CENIZA"
+        if d.tiempo.nombre == "adviento" and d.fecha.month == 12 and 17 <= d.fecha.day <= 24:
+            return f"{d.fecha.day} DE DICIEMBRE"   # ferias mayores de Adviento: tienen entidad propia
         return "FERIA"
     if c.grado == "domingo":
         return c.nombre.upper()

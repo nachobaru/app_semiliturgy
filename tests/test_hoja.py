@@ -74,3 +74,28 @@ def test_himno_de_fiestas_y_solemnidades(tmp_path):
     assert fiesta["laudes"]["himno"] == "Del común de apóstoles"       # Conversión de san Pablo
     solemne = _dia(generar_borrador(date(2026, 12, 8), cargar_config(), carpeta_semanas=tmp_path), "2026-12-08")
     assert solemne["laudes"]["himno"] == "Propio"                      # Inmaculada
+
+
+def test_himno_en_tiempos_especiales(tmp_path):
+    h = generar_borrador(date(2026, 12, 1), cargar_config(), carpeta_semanas=tmp_path)   # I semana de Adviento
+    martes = _dia(h, "2026-12-01")
+    assert martes["celebracion"] == "FERIA"
+    assert martes["laudes"]["himno"] == martes["visperas"]["himno"] == "Del tiempo"
+
+
+def test_himno_segun_el_santoral(tmp_path):
+    tomas = _dia(generar_borrador(date(2027, 1, 28), cargar_config(), carpeta_semanas=tmp_path), "2027-01-28")
+    assert tomas["laudes"]["himno"] == "Del común de doctores"
+    monica = _dia(generar_borrador(date(2027, 8, 27), cargar_config(), carpeta_semanas=tmp_path), "2027-08-27")
+    assert monica["laudes"]["himno"] == "Del común de santas mujeres"
+
+
+def test_cabecera_de_ferias_con_entidad(tmp_path):
+    ceniza = _dia(generar_borrador(date(2027, 2, 10), cargar_config(), carpeta_semanas=tmp_path), "2027-02-10")
+    assert ceniza["celebracion"] == "MIÉRCOLES DE CENIZA"
+    assert _dia(generar_borrador(date(2026, 12, 17), cargar_config(), carpeta_semanas=tmp_path),
+                "2026-12-17")["celebracion"] == "17 DE DICIEMBRE"
+    assert _dia(generar_borrador(date(2026, 12, 21), cargar_config(), carpeta_semanas=tmp_path),
+                "2026-12-21")["celebracion"] == "21 DE DICIEMBRE"   # memoria libre en feria privilegiada: no la sustituye
+    assert _dia(generar_borrador(date(2026, 12, 15), cargar_config(), carpeta_semanas=tmp_path),
+                "2026-12-15")["celebracion"] == "FERIA"
