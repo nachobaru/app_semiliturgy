@@ -11,6 +11,7 @@
 <header class="top"><div class="top-in">
   <div class="cruz" aria-hidden="true">✝</div>
   <div><h1>Hoja de liturgia</h1><p>Seminario Metropolitano de Oviedo</p></div>
+  <button type="button" id="ayuda-abrir" class="ayuda-btn" aria-haspopup="dialog">? Ayuda</button>
 </div></header>
 <main>
   <section class="panel barra-semana">
@@ -28,13 +29,12 @@
     <button id="yaml" class="sec">Descargar YAML</button>
     <button id="restaurar" class="sec">Restaurar borrador</button>
   </section>
-  <p class="nota">Los cambios se guardan solo en este navegador. Para conservarlos o compartirlos, descarga el
-    YAML y súbelo a <code>semanas/</code> del repositorio (así cuenta para no repetir cantos).
-    El PDF se obtiene en el diálogo de impresión («Guardar como PDF», papel A4 apaisado).</p>
+  <p class="nota">Los cambios se guardan solo en este navegador.
+    <a href="#" id="ayuda-enlace">Cómo guardarlos, sacar el PDF y más</a>.</p>
   <h2 class="seccion" id="tit-previa" hidden>Vista previa de la hoja</h2>
   <div class="papel" id="papel" hidden><iframe id="previa" title="Vista previa de la hoja"></iframe></div>
 </main>
-<dialog id="selector" aria-labelledby="sel-titulo">
+<dialog id="selector" class="dialogo" aria-labelledby="sel-titulo">
   <div class="sel-cab">
     <div class="sel-fila"><div><h3 id="sel-titulo"></h3><div id="sel-celeb" class="estado"></div></div>
       <button type="button" id="sel-cerrar" class="sec cerrar" aria-label="Cerrar">✕</button></div>
@@ -42,6 +42,67 @@
     <label class="interruptor"><input type="checkbox" id="sel-todo"> Ver todo el cantoral</label>
   </div>
   <div id="sel-lista" class="sel-lista"></div>
+</dialog>
+<dialog id="ayuda" class="dialogo" aria-labelledby="ayuda-titulo">
+  <div class="sel-cab">
+    <div class="sel-fila"><h3 id="ayuda-titulo">Cómo se usa</h3>
+      <button type="button" id="ayuda-cerrar" class="sec cerrar" aria-label="Cerrar">✕</button></div>
+  </div>
+  <div class="dlg-cuerpo ayuda">
+    <p>La web propone la hoja de liturgia de cada semana ya calculada: celebración de cada día, salmodia,
+      antífonas, formulario, prefacio, himnos y cantos. Tú la revisas, cambias lo que quieras y sacas el PDF.</p>
+
+    <h4>1. Elegir la semana</h4>
+    <ul>
+      <li>Elige un día en el calendario o una semana en el desplegable. Al entrar se abre la semana en curso.</li>
+      <li>Las semanas que ya has tocado llevan una <b>✎</b> en el desplegable.</li>
+    </ul>
+
+    <h4>2. Revisar cada día</h4>
+    <ul>
+      <li>Cada tarjeta es un día. La <b>banda de color</b> de arriba es el color litúrgico.</li>
+      <li>Puedes cambiar cualquier campo escribiendo en él.</li>
+      <li>Si el día tiene memoria libre aparece <b>«Este día hay varias opciones»</b>: al elegir la memoria
+        o la feria cambia todo el día (celebración, color, formulario, prefacio, himnos y cantos).
+        Lo que edites en cada opción se conserva si cambias de una a otra.</li>
+      <li><b>«Avisos de la app»</b> son notas para ti: no salen en la hoja. Los <b>«Avisos de la semana»</b>,
+        abajo del todo, sí salen.</li>
+    </ul>
+
+    <h4>3. Cambiar un canto</h4>
+    <ul>
+      <li>Pulsa <b>«Elegir»</b> junto al canto. Arriba salen los <b>adecuados para ese día</b> (de la fiesta,
+        del tiempo y sin los usados en las últimas semanas); debajo, el resto de cantos de ese momento,
+        por secciones del cantoral.</li>
+      <li>Busca por <b>número</b> o por <b>título</b> (sin preocuparte de tildes). Con <b>«Ver todo el
+        cantoral»</b> aparecen también los de otros momentos.</li>
+      <li>Cada canto indica su <b>página</b> en el cantoral. Si se canta algo que no está en el cantoral,
+        escríbelo directamente en el campo.</li>
+    </ul>
+
+    <h4>4. Himnos</h4>
+    <p>No se pone el título, sino de dónde se toma: <b>Feria</b>; <b>Del tiempo</b> (Adviento, Navidad,
+      Cuaresma y Pascua); <b>Propio</b> (solemnidades y fiestas con himno propio) o <b>Del común de …</b>
+      (mártires, pastores, doctores, vírgenes…).</p>
+
+    <h4>5. Sacar la hoja</h4>
+    <ul>
+      <li>Abajo tienes la <b>vista previa</b> con el formato de la hoja. Se actualiza con
+        «Actualizar vista previa» o al cambiar de opción o de canto.</li>
+      <li><b>«Imprimir / guardar PDF»</b> abre el diálogo de impresión: elige «Guardar como PDF» y
+        papel <b>A4 apaisado</b>. Mejor desde un ordenador.</li>
+    </ul>
+
+    <h4>6. Guardar y compartir</h4>
+    <ul>
+      <li>Los cambios se guardan solos, pero <b>solo en este navegador</b>: no se ven en otro dispositivo
+        ni los ve nadie más.</li>
+      <li>Para que queden guardados de verdad, pulsa <b>«Descargar YAML»</b> y sube el fichero a la carpeta
+        <code>semanas/</code> del repositorio (en GitHub: <i>Add file → Upload files</i>). Así esa semana queda
+        como la oficial y cuenta para no repetir cantos en las siguientes.</li>
+      <li><b>«Restaurar borrador»</b> descarta tus cambios de la semana y vuelve a la propuesta original.</li>
+    </ul>
+  </div>
 </dialog>
 <script src="app.js"></script>
 </body>

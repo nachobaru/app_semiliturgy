@@ -89,17 +89,29 @@ button.sec:hover { background: #f8eeee; }
 iframe#previa { display: block; width: 100%; min-width: 980px; height: 640px; border: 0; background: #fff; box-shadow: 0 6px 22px rgba(60,40,20,.2); }
 h2.seccion { font: 600 1.25rem var(--serif); color: var(--granate); margin: 28px 0 0; }
 
+/* Botón y texto de ayuda */
+.ayuda-btn { margin-left: auto; flex: none; padding: 7px 15px; background: transparent; color: #fff;
+  border: 1px solid rgba(255, 255, 255, .55); font-size: .9rem; }
+.ayuda-btn:hover { background: rgba(255, 255, 255, .14); }
+.dlg-cuerpo { overflow-y: auto; padding: 6px 18px 20px; }
+.ayuda h4 { margin: 18px 0 6px; font: 600 1.05rem var(--serif); color: var(--granate); }
+.ayuda p, .ayuda li { font-size: .93rem; line-height: 1.5; }
+.ayuda ul { margin: 0; padding-left: 20px; }
+.ayuda li { margin-bottom: 5px; }
+.ayuda code { background: var(--oro-claro); padding: 0 4px; border-radius: 4px; font-size: .88em; }
+.nota a { color: var(--granate); font-weight: 600; }
+
 /* Campo de canto con botón «Elegir» */
 .fila-campo { display: flex; gap: 6px; }
 .fila-campo input { flex: 1; min-width: 0; }
 button.elegir { padding: 6px 14px; font-size: .85rem; flex: none; }
 
 /* Selector de cantos */
-dialog#selector { width: min(640px, calc(100vw - 24px)); max-height: 86vh; padding: 0; border: 1px solid var(--borde);
+dialog.dialogo { width: min(640px, calc(100vw - 24px)); max-height: 86vh; padding: 0; border: 1px solid var(--borde);
   border-radius: 16px; background: var(--tarjeta); color: var(--tinta); box-shadow: 0 20px 60px rgba(40, 20, 10, .35);
   display: none; flex-direction: column; overflow: hidden; }
-dialog#selector[open] { display: flex; }
-dialog#selector::backdrop { background: rgba(40, 20, 10, .45); }
+dialog.dialogo[open] { display: flex; }
+dialog.dialogo::backdrop { background: rgba(40, 20, 10, .45); }
 .sel-cab { padding: 14px 16px 10px; border-bottom: 1px solid var(--borde); background: var(--tarjeta); }
 .sel-fila { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
 .sel-cab h3 { margin: 0; font: 600 1.15rem/1.2 var(--serif); color: var(--granate); }
@@ -119,7 +131,7 @@ label.interruptor { display: flex; align-items: center; gap: 8px; margin: 10px 0
 .vacio { color: var(--suave); padding: 12px 6px; }
 
 @media (max-width: 700px) {
-  dialog#selector { width: 100vw; max-width: 100vw; max-height: 88vh; margin: auto 0 0; border-radius: 16px 16px 0 0; }
+  dialog.dialogo { width: 100vw; max-width: 100vw; max-height: 88vh; margin: auto 0 0; border-radius: 16px 16px 0 0; }
   .top h1 { font-size: 1.2rem; } .semana-cab h2 { font-size: 1.6rem; }
   .barra { position: static; } .barra button { flex: 1 1 calc(50% - 4px); padding: 10px 8px; }
 }

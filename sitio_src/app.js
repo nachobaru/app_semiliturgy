@@ -319,7 +319,13 @@ async function iniciar() {
   catch (e) { aviso("No se pudieron cargar los datos. Abre la página desde su dirección web, no como fichero."); return; }
   CAT = new Map(datos.cantos.map((c) => [c.n, c]));
   $("sel-cerrar").addEventListener("click", () => $("selector").close());
-  $("selector").addEventListener("click", (e) => { if (e.target.id === "selector") e.target.close(); });  // tocar fuera cierra
+  for (const id of ["selector", "ayuda"]) {   // tocar fuera del diálogo lo cierra
+    $(id).addEventListener("click", (e) => { if (e.target.id === id) e.target.close(); });
+  }
+  const abrirAyuda = (e) => { e.preventDefault(); $("ayuda").showModal(); $("ayuda").querySelector(".dlg-cuerpo").scrollTop = 0; };
+  $("ayuda-abrir").addEventListener("click", abrirAyuda);
+  $("ayuda-enlace").addEventListener("click", abrirAyuda);
+  $("ayuda-cerrar").addEventListener("click", () => $("ayuda").close());
   for (const [lista, valores] of [["lista-himnos", datos.himnos]]) {
     const dl = document.createElement("datalist"); dl.id = lista;
     for (const v of valores) { const o = document.createElement("option"); o.value = v; dl.appendChild(o); }
