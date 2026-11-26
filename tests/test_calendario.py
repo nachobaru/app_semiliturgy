@@ -75,3 +75,12 @@ def test_memoria_en_cuaresma_es_conmemoracion():
     d = dia_liturgico(date(2026, 3, 7))   # sábado de la II semana de Cuaresma
     assert d.celebracion.grado == "feria"
     assert d.conmemoraciones and "Perpetua" in d.conmemoraciones[0].nombre
+
+
+def test_memorias_libres_de_juan_diego_y_raimundo():
+    from datetime import date
+    from semiliturgy.calendario import dia_liturgico
+    for f, nombre in [(date(2026, 12, 9), "San Juan Diego"), (date(2027, 1, 7), "San Raimundo de Peñafort")]:
+        d = dia_liturgico(f)
+        assert d.celebracion.grado == "feria"                       # la feria sigue siendo lo del día
+        assert any(c.nombre.startswith(nombre) for c in d.memorias_libres)

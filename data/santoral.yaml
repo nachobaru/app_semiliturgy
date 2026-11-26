@@ -19,6 +19,7 @@
 "01-01": {nombre: "Santa María, Madre de Dios", grado: solemnidad, color: blanco, prefacio: "Santa María Virgen I"}
 "01-02": {nombre: "Santos Basilio Magno y Gregorio Nacianceno, obispos y doctores", grado: memoria, color: blanco, comun: pastores}
 "01-06": {nombre: "Epifanía del Señor", grado: solemnidad, color: blanco, prefacio: "Epifanía", señor: true}
+"01-07": {nombre: "San Raimundo de Peñafort, presbítero", grado: memoria_libre, color: blanco, comun: pastores}
 "01-17": {nombre: "San Antonio, abad", grado: memoria, color: blanco, comun: santos}
 "01-21": {nombre: "Santa Inés, virgen y mártir", grado: memoria, color: rojo, comun: martires}
 "01-24": {nombre: "San Francisco de Sales, obispo y doctor", grado: memoria, color: blanco, comun: pastores}
@@ -119,6 +120,7 @@
 "12-06": {nombre: "San Nicolás, obispo", grado: memoria_libre, color: blanco, comun: pastores}
 "12-07": {nombre: "San Ambrosio, obispo y doctor", grado: memoria, color: blanco, comun: pastores}
 "12-08": {nombre: "Inmaculada Concepción de la Virgen María", grado: solemnidad, color: blanco, prefacio: "Propio"}
+"12-09": {nombre: "San Juan Diego Cuauhtlatoatzin", grado: memoria_libre, color: blanco, comun: santos}
 "12-11": {nombre: "San Dámaso I, papa", grado: memoria_libre, color: blanco, comun: pastores}
 "12-12": {nombre: "Nuestra Señora de Guadalupe", grado: memoria_libre, color: blanco, comun: virgen}
 "12-13": {nombre: "Santa Lucía, virgen y mártir", grado: memoria, color: rojo, comun: martires}
