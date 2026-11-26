@@ -34,6 +34,15 @@
   <h2 class="seccion" id="tit-previa" hidden>Vista previa de la hoja</h2>
   <div class="papel" id="papel" hidden><iframe id="previa" title="Vista previa de la hoja"></iframe></div>
 </main>
+<dialog id="selector" aria-labelledby="sel-titulo">
+  <div class="sel-cab">
+    <div class="sel-fila"><div><h3 id="sel-titulo"></h3><div id="sel-celeb" class="estado"></div></div>
+      <button type="button" id="sel-cerrar" class="sec cerrar" aria-label="Cerrar">✕</button></div>
+    <input type="search" id="sel-buscar" placeholder="Buscar por número o título" aria-label="Buscar canto" autocomplete="off">
+    <label class="interruptor"><input type="checkbox" id="sel-todo"> Ver todo el cantoral</label>
+  </div>
+  <div id="sel-lista" class="sel-lista"></div>
+</dialog>
 <script src="app.js"></script>
 </body>
 </html>

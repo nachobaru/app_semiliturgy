@@ -44,7 +44,10 @@ No tiene usuarios ni contraseña: escucha solo en `127.0.0.1`. No la expongas a 
 `python scripts/generar_sitio.py` crea `sitio/`: una página sin servidor que edita los borradores
 en el navegador, muestra la hoja y la imprime a PDF (diálogo de impresión, A4 apaisado). Los
 borradores de las próximas ~80 semanas se pregeneran con las reglas de Python y se respetan los
-YAML revisados de `semanas/`. Lo editado se guarda en el navegador y se exporta como YAML
+YAML revisados de `semanas/`. Cada canto tiene un botón **Elegir** que abre un buscador: primero los
+cantos adecuados para ese día y momento (según el tiempo, la fiesta y sin los usados en las últimas
+semanas) y luego el resto, agrupados por sección del cantoral, con número y página; se busca por
+número o título. Lo editado se guarda en el navegador y se exporta como YAML
 (**Descargar YAML**) para subirlo a `semanas/`.
 
 La publica `.github/workflows/pages.yml` al subir a `main` y cada lunes. Hay que activarlo una vez en

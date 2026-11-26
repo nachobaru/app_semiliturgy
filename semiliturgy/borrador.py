@@ -10,7 +10,7 @@ from pathlib import Path
 import yaml
 
 from .calendario import (DATA, MESES, DiaLiturgico, dia_liturgico, domingo_de, romano, semana)
-from .cantos import Sugeridor, usados_recientemente
+from .cantos import Sugeridor, adecuados, usados_recientemente
 
 RAIZ = DATA.parent
 CLAVES_DIA = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"]
@@ -193,8 +193,13 @@ def etiqueta_celebracion(d: DiaLiturgico) -> str:
 
 # ---------------------------------------------------------------- borrador
 
-def campos_dia(d: DiaLiturgico, horario: dict, cfg: dict, rot: Rotador, sug: Sugeridor) -> dict:
-    """Todo lo que la hoja dice de un día según su celebración (el orden de las claves es el de la hoja)."""
+def campos_dia(d: DiaLiturgico, horario: dict, cfg: dict, rot: Rotador, sug: Sugeridor,
+               recientes: set[int] | None = None) -> dict:
+    """Todo lo que la hoja dice de un día según su celebración (el orden de las claves es el de la hoja).
+
+    Con `recientes` (cantos de las últimas semanas) añade `adecuados`: los números de canto que
+    encajan con el día en cada momento, para elegir a mano en la web. No sale en la hoja.
+    """
     horas = horario.get("horas", [])
     dia: dict = {"celebracion": etiqueta_celebracion(d), "color": d.celebracion.color}
     if horario.get("laudes_con_eucaristia"):
@@ -210,6 +215,8 @@ def campos_dia(d: DiaLiturgico, horario: dict, cfg: dict, rot: Rotador, sug: Sug
             c = sug.sugerir(d, momento)
             cantos[momento] = c.etiqueta_hoja() if c else ""
         dia["cantos"] = cantos
+        if recientes is not None:
+            dia["adecuados"] = {m: [c.n for c in adecuados(d, m, recientes)] for m in cantos}
     if "visperas" in horas:
         sig = dia_liturgico(d.fecha + timedelta(days=1))
         if tiene_primeras_visperas(d, sig):
@@ -222,7 +229,7 @@ def campos_dia(d: DiaLiturgico, horario: dict, cfg: dict, rot: Rotador, sug: Sug
 
 
 def opciones_dia(d: DiaLiturgico, dia: dict, horario: dict, cfg: dict,
-                 rot: Rotador, sug: Sugeridor) -> list[dict]:
+                 rot: Rotador, sug: Sugeridor, recientes: set[int] | None = None) -> list[dict]:
     """Variantes de un día con memorias libres: la feria (la que ya está en `dia`) y cada memoria.
 
     Las variantes se calculan con copia del estado (rotadores y cantos usados) para no alterar
@@ -235,20 +242,22 @@ def opciones_dia(d: DiaLiturgico, dia: dict, horario: dict, cfg: dict,
     for c in d.memorias_libres:
         variante = replace(d, celebracion=c, memorias_libres=[], conmemoraciones=[], avisos=[])
         campos = campos_dia(variante, horario, cfg, Rotador(semilla=rot.semilla),
-                            Sugeridor(excluidos=set(sug.excluidos)))
+                            Sugeridor(excluidos=set(sug.excluidos)), recientes)
         opciones.append({"etiqueta": c.nombre, "tipo": "Memoria libre", **campos})
     return opciones
 
 
 def generar_borrador(fecha: date, cfg: dict | None = None, carpeta_semanas: Path | None = None,
-                     con_opciones: bool = False) -> dict:
-    """`con_opciones`: añade a cada día con memorias libres la lista `opciones` (para la web)."""
+                     para_web: bool = False) -> dict:
+    """`para_web`: añade lo que solo usa la web y no sale en la hoja: `opciones` en los días con
+    memorias libres y `adecuados` (cantos que encajan) en cada día y variante."""
     cfg = cfg or cargar_config()
     carpeta_semanas = carpeta_semanas or RAIZ / "semanas"
     inicio = domingo_de(fecha)
     dias = semana(inicio)
     rot = Rotador(semilla=dias[1].tiempo.semana)
-    sug = Sugeridor(excluidos=usados_recientemente(carpeta_semanas, inicio, cfg.get("semanas_sin_repetir_cantos", 3)))
+    recientes = usados_recientemente(carpeta_semanas, inicio, cfg.get("semanas_sin_repetir_cantos", 3))
+    sug = Sugeridor(excluidos=set(recientes))
 
     fin = inicio + timedelta(days=6)
     if inicio.month == fin.month:
@@ -273,12 +282,12 @@ def generar_borrador(fecha: date, cfg: dict | None = None, carpeta_semanas: Path
             continue
         horario = cfg["horario"].get(clave, {})
         dia: dict = {"fecha": d.fecha.isoformat(), "dia": NOMBRE_DIA[d.fecha.weekday()]}
-        dia.update(campos_dia(d, horario, cfg, rot, sug))
-        if con_opciones and d.memorias_libres:
-            dia["opciones"] = opciones_dia(d, dia, horario, cfg, rot, sug)
+        dia.update(campos_dia(d, horario, cfg, rot, sug, recientes if para_web else None))
+        if para_web and d.memorias_libres:
+            dia["opciones"] = opciones_dia(d, dia, horario, cfg, rot, sug, recientes)
             dia["opcion"] = 0
         for c in d.memorias_libres:
-            if not con_opciones:
+            if not para_web:
                 hoja["notas"].append(f"{dia['dia']} {d.fecha.day}: memoria libre opcional — {c.nombre}.")
         for c in d.conmemoraciones:
             hoja["notas"].append(f"{dia['dia']} {d.fecha.day}: conmemoración — {c.nombre}.")

@@ -35,21 +35,27 @@ def css_de_la_hoja() -> str:
     return re.search(r"<style>(.*?)</style>", html, re.S).group(1).strip()
 
 
-CAMPOS_VARIANTE = ("celebracion", "color", "laudes_con_eucaristia", "laudes", "eucaristia", "cantos", "visperas")
+CAMPOS_VARIANTE = ("celebracion", "color", "laudes_con_eucaristia", "laudes", "eucaristia", "cantos", "visperas",
+                   "adecuados")
 
 
 def injertar_opciones(real: dict, cfg: dict, carpeta: Path) -> dict:
-    """Añade a una hoja revisada a mano las opciones de los días con memorias libres.
+    """Añade a una hoja revisada a mano lo que usa la web: opciones de los días con memorias libres
+    y cantos adecuados de cada día.
 
     Lo que hay en el YAML revisado manda: pasa a ser la variante activa (la que coincide por formulario;
     si ninguna coincide, la primera) y las demás variantes salen del borrador calculado.
     """
-    gen = generar_borrador(date.fromisoformat(real["semana"]), cfg, carpeta_semanas=carpeta, con_opciones=True)
+    gen = generar_borrador(date.fromisoformat(real["semana"]), cfg, carpeta_semanas=carpeta, para_web=True)
     por_fecha = {d["fecha"]: d for d in gen["dias"]}
     hoja = copy.deepcopy(real)
     for dia in hoja["dias"]:
         g = por_fecha.get(dia["fecha"])
-        if not g or "opciones" not in g:
+        if not g:
+            continue
+        if "adecuados" in g:
+            dia["adecuados"] = copy.deepcopy(g["adecuados"])
+        if "opciones" not in g:
             continue
         opciones = copy.deepcopy(g["opciones"])
         formulario = (dia.get("eucaristia") or {}).get("formulario")
@@ -76,7 +82,7 @@ def semanas(n: int, desde: date) -> dict[str, dict]:
             d = domingo_de(desde) + timedelta(weeks=i)
             if d.isoformat() in out:
                 continue
-            hoja = generar_borrador(d, cfg, carpeta_semanas=tmp, con_opciones=True)
+            hoja = generar_borrador(d, cfg, carpeta_semanas=tmp, para_web=True)
             guardar_borrador(hoja, tmp / f"{d.isoformat()}.yaml")  # para el historial de la siguiente
             out[d.isoformat()] = hoja
     return dict(sorted(out.items()))
@@ -89,7 +95,9 @@ def construir(salida: Path, n: int, desde: date) -> None:
     datos = {
         "generado": date.today().isoformat(),
         "semanas": semanas(n, desde),
-        "cantos": [c.etiqueta_hoja() for c in sorted(catalogo().values(), key=lambda c: c.n) if not c.excluir],
+        "cantos": [{"n": c.n, "titulo": c.titulo, "pagina": c.pagina, "subseccion": c.subseccion,
+                    "momentos": c.momentos, "etiqueta": c.etiqueta_hoja()}
+                   for c in sorted(catalogo().values(), key=lambda c: c.n) if not c.excluir],
         "himnos": OPCIONES_HIMNO,
         "css": css_de_la_hoja(),
     }

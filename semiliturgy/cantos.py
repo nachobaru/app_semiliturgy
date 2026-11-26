@@ -110,27 +110,51 @@ def etiquetas_preferidas(dia: DiaLiturgico) -> list[str]:
 ETIQUETAS_TIEMPO = {"adviento", "navidad", "cuaresma", "pascua"}
 
 
+def _tiempo_cantos(dia: DiaLiturgico) -> str:
+    return {"semana_santa": "cuaresma", "triduo": "cuaresma"}.get(dia.tiempo.nombre, dia.tiempo.nombre)
+
+
+def _propios(dia: DiaLiturgico, momento: str, excluidos: set[int]) -> list[Canto]:
+    """Cantos de un santo o fiesta concretos (`solo_si`) que encajan con la celebración del día."""
+    return [c for c in catalogo().values()
+            if c.solo_si and c.solo_si.lower() in dia.celebracion.nombre.lower()
+            and momento in c.momentos and not c.excluir and c.n not in excluidos]
+
+
+def _apto(c: Canto, momento: str, tag: str, tiempo: str, excluidos: set[int]) -> bool:
+    """El canto vale para ese momento y etiqueta, no está excluido y, si es de un tiempo, es del actual."""
+    return (momento in c.momentos and tag in c.etiquetas and not c.excluir and not c.solo_si
+            and c.n not in excluidos
+            and not ((set(c.etiquetas) & ETIQUETAS_TIEMPO) and tiempo not in c.etiquetas))
+
+
+def adecuados(dia: DiaLiturgico, momento: str, excluidos: set[int] | None = None) -> list[Canto]:
+    """Todos los cantos que encajan con el día y el momento, de más a menos específicos (para elegir
+    a mano): los propios de la celebración, luego por cada etiqueta preferida, y al final los generales."""
+    excluidos = excluidos or set()
+    tiempo = _tiempo_cantos(dia)
+    out = list(_propios(dia, momento, excluidos))
+    for tag in etiquetas_preferidas(dia):
+        for c in sorted(catalogo().values(), key=lambda c: c.n):
+            if c not in out and _apto(c, momento, tag, tiempo, excluidos):
+                out.append(c)
+    return out
+
+
 @dataclass
 class Sugeridor:
     excluidos: set[int] = field(default_factory=set)
 
     def sugerir(self, dia: DiaLiturgico, momento: str) -> Canto | None:
         prefs = etiquetas_preferidas(dia)
-        tiempo = {"semana_santa": "cuaresma", "triduo": "cuaresma"}.get(dia.tiempo.nombre, dia.tiempo.nombre)
+        tiempo = _tiempo_cantos(dia)
         rng = random.Random(f"{dia.fecha.isoformat()}-{momento}")
-        propios = [c for c in catalogo().values()
-                   if c.solo_si and c.solo_si.lower() in dia.celebracion.nombre.lower()
-                   and momento in c.momentos and not c.excluir and c.n not in self.excluidos]
+        propios = _propios(dia, momento, self.excluidos)
         if propios:
             self.excluidos.add(propios[0].n)
             return propios[0]
         for tag in prefs:
-            candidatos = [
-                c for c in catalogo().values()
-                if momento in c.momentos and tag in c.etiquetas and not c.excluir and not c.solo_si
-                and c.n not in self.excluidos
-                and not ((set(c.etiquetas) & ETIQUETAS_TIEMPO) and tiempo not in c.etiquetas)
-            ]
+            candidatos = [c for c in catalogo().values() if _apto(c, momento, tag, tiempo, self.excluidos)]
             if candidatos:
                 elegido = rng.choices(candidatos, weights=[c.peso for c in candidatos])[0]
                 self.excluidos.add(elegido.n)

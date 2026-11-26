@@ -106,7 +106,7 @@ function lineas(v, n) {
 }
 const aYaml = (h) => {
   const limpia = JSON.parse(JSON.stringify(h));
-  for (const d of limpia.dias) { delete d.opciones; delete d.opcion; }   // en el YAML solo queda lo elegido
+  for (const d of limpia.dias) { delete d.opciones; delete d.opcion; delete d.adecuados; }   // en el YAML solo queda lo elegido
   return aYamlTexto(limpia);
 };
 const aYamlTexto = (h) => "# Hoja de liturgia exportada desde la web. Súbela a semanas/ para que cuente en el historial de cantos.\n"
@@ -129,7 +129,7 @@ function entrada(et, valor, onInput, lista) {
   l.appendChild(i); return l;
 }
 
-const CAMPOS_VARIANTE = ["celebracion", "color", "laudes_con_eucaristia", "laudes", "eucaristia", "cantos", "visperas"];
+const CAMPOS_VARIANTE = ["celebracion", "color", "laudes_con_eucaristia", "laudes", "eucaristia", "cantos", "visperas", "adecuados"];
 
 /* Cambia la opción de un día: guarda lo editado en la variante actual y carga la elegida. */
 function elegirOpcion(dia, i) {
@@ -178,12 +178,87 @@ function tarjetaDia(dia) {
     lg.textContent = ETIQ[sec] + (sec === "visperas" && bloque.de ? " (I Vísperas)" : ""); fs.appendChild(lg);
     const claves = sec === "cantos" ? [...new Set([...Object.keys(bloque || {}), ...MOMENTOS])] : Object.keys(bloque);
     for (const k of claves) {
-      const lista = sec === "cantos" ? "lista-cantos" : k === "himno" ? "lista-himnos" : null;
+      if (sec === "cantos") { fs.appendChild(campoCanto(dia, k)); continue; }
+      const lista = k === "himno" ? "lista-himnos" : null;
       fs.appendChild(entrada(ETIQ[k] || k, (bloque || {})[k], (v) => { (dia[sec] = dia[sec] || {})[k] = v; guardar(); }, lista));
     }
     c.appendChild(fs);
   }
   return c;
+}
+
+/* ---------- selector de cantos ---------- */
+let CAT = new Map();
+const normalizar = (t) => String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+function campoCanto(dia, k) {
+  const poner = (v) => { (dia.cantos = dia.cantos || {})[k] = v; guardar(); };
+  const l = entrada(ETIQ[k] || k, (dia.cantos || {})[k], poner);
+  const input = l.querySelector("input");
+  const fila = document.createElement("div"); fila.className = "fila-campo";
+  const b = document.createElement("button"); b.type = "button"; b.className = "sec elegir"; b.textContent = "Elegir";
+  b.setAttribute("aria-label", `Elegir canto de ${(ETIQ[k] || k).toLowerCase()}`);
+  b.addEventListener("click", () => abrirSelector(dia, k, (v) => { input.value = v; poner(v); vistaPrevia(); }));
+  fila.append(input, b); l.appendChild(fila);
+  return l;
+}
+
+function abrirSelector(dia, momento, alElegir) {
+  const dlg = $("selector");
+  $("sel-titulo").textContent = `Canto de ${(ETIQ[momento] || momento).toLowerCase()} · ${dia.dia} ${dia.fecha.slice(8)}`;
+  $("sel-celeb").textContent = dia.celebracion || "";
+  const buscar = $("sel-buscar"), todo = $("sel-todo");
+  buscar.value = ""; todo.checked = false;
+  const actual = (dia.cantos || {})[momento] || "";
+  const pintar = () => pintarSelector(dia, momento, buscar.value.trim(), todo.checked, actual, (c) => {
+    alElegir(c.etiqueta); dlg.close();
+  });
+  buscar.oninput = pintar; todo.onchange = pintar;
+  pintar();
+  dlg.showModal();
+  $("sel-lista").scrollTop = 0;
+  if (!matchMedia("(pointer: coarse)").matches) buscar.focus();   // en móvil no se abre el teclado de golpe
+}
+
+function filaCanto(c, actual, elegir) {
+  const b = document.createElement("button"); b.type = "button"; b.className = "fila-canto";
+  if (actual === c.etiqueta) b.setAttribute("aria-current", "true");
+  const t = document.createElement("span"); t.className = "t";
+  const n = document.createElement("b"); n.textContent = c.n;
+  t.append(n, document.createTextNode(" · " + c.titulo));
+  const m = document.createElement("small"); m.textContent = `${c.subseccion} · pág. ${c.pagina}`;
+  b.append(t, m);
+  b.addEventListener("click", () => elegir(c));
+  return b;
+}
+
+function pintarSelector(dia, momento, q, todo, actual, elegir) {
+  const lista = $("sel-lista"); lista.replaceChildren();
+  const nq = normalizar(q), num = /^\d+$/.test(q);
+  const coincide = (c) => !q || (num ? String(c.n).startsWith(q) : normalizar(c.titulo).includes(nq));
+  const grupo = (titulo, cantos, agrupar) => {
+    if (!cantos.length) return;
+    const h = document.createElement("h4"); h.textContent = `${titulo} (${cantos.length})`; lista.appendChild(h);
+    let sub = null;
+    for (const c of cantos) {
+      if (agrupar && c.subseccion !== sub) {
+        sub = c.subseccion; const s = document.createElement("div"); s.className = "subgrupo"; s.textContent = sub; lista.appendChild(s);
+      }
+      lista.appendChild(filaCanto(c, actual, elegir));
+    }
+  };
+  const nums = ((dia.adecuados || {})[momento] || []);
+  const ade = nums.map((n) => CAT.get(n)).filter((c) => c && coincide(c));
+  const enAde = new Set(nums);
+  const resto = [...CAT.values()].filter((c) => !enAde.has(c.n) && coincide(c) && (todo || c.momentos.includes(momento)))
+    .sort((a, b) => a.subseccion.localeCompare(b.subseccion, "es") || a.n - b.n);
+  grupo("Adecuados para este día", ade, false);
+  grupo(todo ? "Resto del cantoral" : `Otros cantos de ${(ETIQ[momento] || momento).toLowerCase()}`, resto, true);
+  if (!ade.length && !resto.length) {
+    const p = document.createElement("p"); p.className = "vacio";
+    p.textContent = todo ? "Ningún canto coincide." : "Ningún canto coincide. Prueba con «Ver todo el cantoral».";
+    lista.appendChild(p);
+  }
 }
 
 function pintarEditor() {
@@ -242,7 +317,10 @@ function refrescarSelector() {
 async function iniciar() {
   try { datos = await (await fetch("datos.json")).json(); }
   catch (e) { aviso("No se pudieron cargar los datos. Abre la página desde su dirección web, no como fichero."); return; }
-  for (const [lista, valores] of [["lista-cantos", datos.cantos], ["lista-himnos", datos.himnos]]) {
+  CAT = new Map(datos.cantos.map((c) => [c.n, c]));
+  $("sel-cerrar").addEventListener("click", () => $("selector").close());
+  $("selector").addEventListener("click", (e) => { if (e.target.id === "selector") e.target.close(); });  // tocar fuera cierra
+  for (const [lista, valores] of [["lista-himnos", datos.himnos]]) {
     const dl = document.createElement("datalist"); dl.id = lista;
     for (const v of valores) { const o = document.createElement("option"); o.value = v; dl.appendChild(o); }
     document.body.appendChild(dl);
