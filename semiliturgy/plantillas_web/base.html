@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% block titulo %}Hoja de liturgia{% endblock %} · Seminario de Oviedo</title>
+<title>{% block titulo %}Ordo{% endblock %} · Seminario de Oviedo</title>
 <style>
   :root { --rojo:#8b1a1a; --gris:#f3f1ee; --borde:#d8d4cc; --texto:#222; --fondo:#fff; --acento:#8b1a1a; }
   @media (prefers-color-scheme: dark) {
@@ -42,7 +42,7 @@
 </style>
 </head>
 <body>
-<header class="top"><a href="{{ url_for('index') }}">✝ Hoja de liturgia · Seminario Metropolitano de Oviedo</a></header>
+<header class="top"><a href="{{ url_for('index') }}">✝ Ordo · Seminario Metropolitano de Oviedo</a></header>
 <main>{% block cuerpo %}{% endblock %}</main>
 </body>
 </html>

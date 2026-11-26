@@ -1,6 +1,7 @@
-# app_semiliturgy
+# Ordo · app_semiliturgy
 
-Generador de la **hoja de liturgia semanal** del Seminario Metropolitano de Oviedo.
+**Ordo** es el generador de la **hoja de liturgia semanal** del Seminario Metropolitano de Oviedo
+(web: <https://nachobaru.github.io/app_semiliturgy/>).
 
 A partir de una fecha, la app calcula el calendario litúrgico de la semana y propone un
 borrador con todo lo que sale por reglas:
@@ -49,6 +50,10 @@ cantos adecuados para ese día y momento (según el tiempo, la fiesta y sin los 
 semanas) y luego el resto, agrupados por sección del cantoral, con número y página; se busca por
 número o título. Lo editado se guarda en el navegador y se exporta como YAML
 (**Descargar YAML**) para subirlo a `semanas/`.
+
+El icono está en `sitio_src/icono.svg` (fuente editable) y sus PNG (`icono-32/180/192/512.png`) se
+regeneran con `node scripts/generar_iconos.js [eb-garamond-latin-600-normal.woff2]` (necesita
+Playwright; la fuente EB Garamond, licencia OFL, es opcional y solo se usa para renderizar).
 
 La publica `.github/workflows/pages.yml` al subir a `main` y cada lunes. Hay que activarlo una vez en
 *Settings → Pages → Source: GitHub Actions*.
