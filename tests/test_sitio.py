@@ -11,7 +11,7 @@ def test_construir_sitio(tmp_path):
     assert (tmp_path / "sitio" / "index.html").exists() and (tmp_path / "sitio" / ".nojekyll").exists()
     assert "2026-11-22" in d["semanas"] and "2026-12-27" in d["semanas"]
     assert all(len(h["dias"]) == 6 for h in d["semanas"].values())
-    assert d["cantos"] and "table.hoja" in d["css"]
+    assert d["cantos"] and ".cuerpo-hoja" in d["css"]
 
 
 def test_respeta_semanas_revisadas(tmp_path):
@@ -100,3 +100,11 @@ def test_sitio_publica_el_catalogo_con_pagina(tmp_path):
     assert set(c) == {"n", "titulo", "pagina", "subseccion", "momentos", "etiqueta"}
     lunes = next(x for x in d["semanas"]["2026-11-22"]["dias"] if x["dia"] == "LUNES")
     assert lunes["adecuados"]["entrada"] and "adecuados" in lunes["opciones"][1]
+
+
+def test_sitio_exporta_css_y_ajuste_de_la_hoja(tmp_path):
+    construir(tmp_path / "sitio", 1, date(2026, 11, 25))
+    d = json.loads((tmp_path / "sitio" / "datos.json").read_text(encoding="utf-8"))
+    assert "@page" in d["css"] and "data-color" in d["css"]
+    assert "scrollHeight" in d["ajuste"] and "<script>" not in d["ajuste"]
+    assert (tmp_path / "sitio" / "hoja.js").exists()

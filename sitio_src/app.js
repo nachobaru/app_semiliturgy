@@ -28,59 +28,7 @@ function domingoDe(iso) {
   return d.toISOString().slice(0, 10);
 }
 
-/* ---------- maqueta de la hoja (equivale a semiliturgy/plantillas/hoja.html) ---------- */
-const esc = (s) => String(s ?? "").replace(/[&<>"']/g,
-  (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const NUM = /^\s*(\d{1,3})\s*·/;
-function canto(t) {
-  const m = NUM.exec(t || "");
-  return m ? `${esc(t.slice(m[0].length).trim())} <span class="n">(n.º ${m[1]})</span>` : esc(t);
-}
-const campo = (et, v) => `<p class="campo"><b>${et}:</b> ${esc(v)}</p>`;
-
-function celdaDia(d) {
-  let h = `<td><div class="cab"><div class="dia">${esc(d.dia)}</div><div class="celeb">${esc(d.celebracion)}</div></div><div class="cuerpo">`;
-  if (d.laudes) {
-    h += `<div class="titbloque">${d.laudes_con_eucaristia && d.eucaristia ? "Laudes y Eucaristía" : "Laudes"}</div>`;
-    if (d.laudes.himno) h += campo("Himno", d.laudes.himno);
-    h += campo("Salmodia", d.laudes.salmodia) + campo("Benedictus", d.laudes.benedictus);
-  }
-  if (d.eucaristia) {
-    if (!(d.laudes && d.laudes_con_eucaristia)) h += `<div class="titbloque">Eucaristía</div>`;
-    h += campo("Formulario", d.eucaristia.formulario) + campo("Prefacio", d.eucaristia.prefacio);
-  }
-  if (d.visperas) {
-    h += `<div class="titbloque">${d.visperas.de ? "I Vísperas" : "Vísperas"}</div>`;
-    if (d.visperas.de) h += campo("De", d.visperas.de);
-    if (d.visperas.himno) h += campo("Himno", d.visperas.himno);
-    h += campo("Salmodia", d.visperas.salmodia) + campo("Magnificat", d.visperas.magnificat);
-  }
-  return h + "</div></td>";
-}
-
-function lateral(h, filas) {
-  let c = "";
-  for (const d of h.dias) {
-    if (!d.cantos || !Object.values(d.cantos).some(Boolean)) continue;
-    c += `<div class="diacantos">${esc(d.dia)}</div>`;
-    for (const [m, et] of [["entrada", "Entrada"], ["ofertorio", "Ofertorio"], ["comunion", "Comunión"]]) {
-      if (d.cantos[m]) c += `<p class="campo">${et}: ${canto(d.cantos[m])}</p>`;
-    }
-  }
-  return `<td class="lateral" rowspan="${filas}"><div class="cab semana">${esc(h.titulo)}</div><div class="cuerpo">
-    <p class="campo"><b>SEMANA DE SALTERIO: ${esc(h.salterio)}</b></p><p class="campo"><b>TIEMPO: ${esc(h.tiempo)}</b></p>
-    <div class="titbloque">Cantos</div>${c}
-    <div class="titbloque" style="margin-top:10px">Avisos</div><div class="avisos">${esc(h.avisos || "")}</div></div></td>`;
-}
-
-function renderHoja(h) {
-  const filas = [];
-  for (let i = 0; i < h.dias.length; i += 3) filas.push(h.dias.slice(i, i + 3));
-  const cuerpo = filas.map((fila, i) =>
-    `<tr>${i === 0 ? lateral(h, filas.length) : ""}${fila.map(celdaDia).join("")}${"<td></td>".repeat(3 - fila.length)}</tr>`).join("");
-  return `<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Hoja de liturgia · ${esc(h.titulo)}</title>
-<style>${datos.css}</style></head><body><h1>HOJA LITURGIA</h1><table class="hoja">${cuerpo}</table></body></html>`;
-}
+/* La maqueta de la hoja impresa está en hoja.js (renderHoja). */
 
 /* ---------- YAML (estructura simple: dicts, listas y cadenas) ---------- */
 const escalar = (v) => v === null || v === undefined ? "null" : typeof v === "string" ? JSON.stringify(v) : String(v);
@@ -290,7 +238,7 @@ function pintarEditor() {
 
 function vistaPrevia() {
   $("tit-previa").hidden = false; $("papel").hidden = false;
-  $("previa").srcdoc = renderHoja(hoja);
+  $("previa").srcdoc = renderHoja(hoja, datos.css, datos.ajuste);
 }
 
 function abrir(id) {
@@ -340,7 +288,7 @@ async function iniciar() {
   $("fecha").addEventListener("change", (e) => e.target.value && abrir(domingoDe(e.target.value)));
   $("vista").addEventListener("click", vistaPrevia);
   $("imprimir").addEventListener("click", () => {
-    const f = $("previa"); $("tit-previa").hidden = false; $("papel").hidden = false; f.srcdoc = renderHoja(hoja);
+    const f = $("previa"); $("tit-previa").hidden = false; $("papel").hidden = false; f.srcdoc = renderHoja(hoja, datos.css, datos.ajuste);
     f.onload = () => { f.onload = null; f.contentWindow.focus(); f.contentWindow.print(); };
   });
   $("yaml").addEventListener("click", () => {

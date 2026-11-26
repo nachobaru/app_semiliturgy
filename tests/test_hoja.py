@@ -108,3 +108,40 @@ def test_cabecera_semana_santa_y_octavas(tmp_path):
     assert cab(date(2027, 3, 29)) == "LUNES DE LA OCTAVA DE PASCUA"
     assert cab(date(2026, 12, 29)) == "DÍA 5.º DE LA OCTAVA DE NAVIDAD"
     assert cab(date(2027, 4, 5)) == "FERIA"
+
+
+def test_hoja_lleva_el_color_liturgico_de_cada_dia(tmp_path):
+    h = _hoja(date(2026, 11, 18), tmp_path)
+    html = render_html(h)
+    for d in h["dias"]:
+        assert f'data-color="{d["color"]}"' in html
+    assert html.count('<section class="dia"') == len(h["dias"])
+    assert "<h3>Cantos</h3>" in html and "Avisos" in html
+
+
+def _cuerpo(html):
+    """Lo que hay entre <body> y el script de ajuste, sin espacios: la maqueta en sí."""
+    import re
+    m = re.search(r"<body>(.*?)<script>", html, re.S)
+    return re.sub(r"\s+", "", m.group(1))
+
+
+def test_paridad_con_la_web(tmp_path):
+    """La maqueta de la web (sitio_src/hoja.js) es idéntica a la de Jinja."""
+    import json
+    import shutil
+    import subprocess
+    from pathlib import Path
+    import pytest
+    if not shutil.which("node"):
+        pytest.skip("sin node")
+    hoja_js = Path(__file__).resolve().parents[1] / "sitio_src" / "hoja.js"
+    semanas = [_hoja(date(2026, 11, 18), tmp_path), _hoja(date(2026, 12, 21), tmp_path),
+               _hoja(date(2027, 3, 24), tmp_path)]
+    semanas[0]["avisos"] = 'Retiro el sábado <a las "10"> & después: café\nSegunda línea'
+    semanas[0]["dias"][0]["cantos"]["entrada"] = "Canto libre sin número"
+    for h in semanas:
+        js = subprocess.run(["node", "-e", f"process.stdout.write(require({json.dumps(str(hoja_js))})"
+                             ".renderHoja(JSON.parse(require('fs').readFileSync(0, 'utf8'))))"],
+                            input=json.dumps(h), capture_output=True, text=True, check=True).stdout
+        assert _cuerpo(js) == _cuerpo(render_html(h)), h["titulo"]

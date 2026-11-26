@@ -69,6 +69,12 @@ def injertar_opciones(real: dict, cfg: dict, carpeta: Path) -> dict:
     return hoja
 
 
+def ajuste_de_la_hoja() -> str:
+    """El script que ajusta la letra para que la hoja quepa en una página, también de la plantilla."""
+    html = (PLANTILLAS / "hoja.html").read_text(encoding="utf-8")
+    return re.search(r"<script>(.*?)</script>", html, re.S).group(1).strip()
+
+
 def semanas(n: int, desde: date) -> dict[str, dict]:
     cfg = cargar_config()
     out: dict[str, dict] = {}
@@ -100,6 +106,7 @@ def construir(salida: Path, n: int, desde: date) -> None:
                    for c in sorted(catalogo().values(), key=lambda c: c.n) if not c.excluir],
         "himnos": OPCIONES_HIMNO,
         "css": css_de_la_hoja(),
+        "ajuste": ajuste_de_la_hoja(),
     }
     (salida / "datos.json").write_text(json.dumps(datos, ensure_ascii=False, default=str), encoding="utf-8")
     (salida / ".nojekyll").touch()

@@ -89,7 +89,7 @@ button.sec:hover { background: #f8eeee; }
 
 /* Vista previa */
 .papel { margin-top: 10px; overflow-x: auto; background: #ece4d3; border: 1px solid var(--borde); border-radius: 14px; padding: 14px; }
-iframe#previa { display: block; width: 100%; min-width: 980px; height: 640px; border: 0; background: #fff; box-shadow: 0 6px 22px rgba(60,40,20,.2); }
+iframe#previa { display: block; width: 100%; min-width: 1100px; height: 820px; border: 0; background: #fff; box-shadow: 0 6px 22px rgba(60,40,20,.2); }
 h2.seccion { font: 600 1.25rem var(--serif); color: var(--granate); margin: 28px 0 0; }
 
 /* Botón y texto de ayuda */
