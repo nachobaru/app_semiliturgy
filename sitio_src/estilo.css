@@ -23,10 +23,12 @@ main { max-width: 1120px; margin: 0 auto; padding: 20px 16px 48px; }
 
 /* Selector de semana */
 .panel { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 14px; box-shadow: var(--sombra); padding: 14px 16px; }
-.barra-semana { display: flex; gap: 14px; flex-wrap: wrap; align-items: end; }
+.barra-semana { display: flex; gap: 14px; flex-wrap: wrap; align-items: end; justify-content: center;
+  max-width: 680px; margin: 0 auto; }
 .barra-semana > div { flex: 1 1 220px; }
 .estado { color: var(--suave); font-size: .85rem; }
-.barra-semana .estado { flex: 2 1 260px; align-self: center; }
+/* Mensaje de estado («cambios guardados…»): discreto, en una línea propia bajo los campos */
+.barra-semana .estado { flex: 1 1 100%; text-align: center; font-size: .74rem; opacity: .8; margin-top: -6px; min-height: 1em; }
 label { display: block; font-size: .78rem; font-weight: 600; color: var(--suave); letter-spacing: .03em; margin: .6em 0 .2em; }
 .barra-semana label { margin-top: 0; }
 input[type=text], input[type=date], select, textarea { width: 100%; padding: 9px 11px; border: 1px solid var(--borde);
@@ -38,13 +40,14 @@ textarea { min-height: 6em; resize: vertical; }
 .aviso { padding: 10px 14px; border-radius: 10px; background: var(--oro-claro); border-left: 4px solid var(--oro); margin: 14px 0; }
 
 /* Cabecera de la semana */
-.semana-cab { margin: 26px 0 6px; }
+.semana-cab { margin: 26px 0 6px; text-align: center; }
 .semana-cab h2 { margin: 0; font: 600 2rem/1.15 var(--serif); color: var(--granate); }
-.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; justify-content: center; }
 .chip { background: var(--oro-claro); color: #6b5116; border: 1px solid #e3cf9b; border-radius: 99px; padding: 2px 12px; font-size: .82rem; font-weight: 600; }
 details.notas { margin: 14px 0; }
 details.notas summary { cursor: pointer; font-weight: 600; color: var(--granate); }
-.titulo-hoja { max-width: 520px; }
+.titulo-hoja { max-width: 520px; margin: 0 auto; text-align: center; }
+.titulo-hoja input { text-align: center; }
 
 /* Tarjetas de día */
 .dias { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 16px; }
