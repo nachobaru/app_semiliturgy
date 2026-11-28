@@ -305,6 +305,10 @@ def _celebracion_santoral(d: date) -> Celebracion | None:
                        bool(e.get("verificar")), bool(e.get("señor")), e.get("himno"))
 
 
+SANTA_MARIA_EN_SABADO = Celebracion("Santa María en sábado", "memoria_libre", RANGOS["memoria_libre"], "blanco",
+                                    comun="virgen")
+
+
 def dia_liturgico(d: date) -> DiaLiturgico:
     t = tiempo_de(d)
     feria = _temporal(d, t)
@@ -340,6 +344,10 @@ def dia_liturgico(d: date) -> DiaLiturgico:
     if ganador.grado in ("memoria",) and feria.rango == RANGOS["feria_privilegiada"]:
         dia.celebracion = feria
         dia.conmemoraciones.insert(0, ganador)
+
+    # Sábados del tiempo ordinario sin memoria obligatoria: memoria libre de santa María en sábado.
+    if d.weekday() == 5 and t.nombre == "ordinario" and dia.celebracion.grado == "feria":
+        dia.memorias_libres.append(SANTA_MARIA_EN_SABADO)
 
     if dia.celebracion.verificar:
         dia.avisos.append(f"«{dia.celebracion.nombre}» está pendiente de verificar con la Epacta.")

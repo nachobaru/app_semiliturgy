@@ -84,3 +84,14 @@ def test_memorias_libres_de_juan_diego_y_raimundo():
         d = dia_liturgico(f)
         assert d.celebracion.grado == "feria"                       # la feria sigue siendo lo del día
         assert any(c.nombre.startswith(nombre) for c in d.memorias_libres)
+
+
+def test_santa_maria_en_sabado():
+    from datetime import date
+    from semiliturgy.calendario import dia_liturgico
+    nombres = lambda f: [c.nombre for c in dia_liturgico(f).memorias_libres]
+    assert "Santa María en sábado" in nombres(date(2026, 11, 28))        # sábado del T. O., feria
+    assert "Santa María en sábado" not in nombres(date(2026, 11, 21))    # Presentación: memoria obligatoria
+    assert "Santa María en sábado" not in nombres(date(2026, 12, 5))     # Adviento
+    assert "Santa María en sábado" not in nombres(date(2026, 11, 27))    # viernes
+    assert dia_liturgico(date(2026, 11, 28)).celebracion.grado == "feria"  # sigue siendo opción, no lo del día
